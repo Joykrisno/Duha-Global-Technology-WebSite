@@ -1,0 +1,236 @@
+﻿ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f6faff;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ---------- NAVBAR (logo centered / stylish) ---------- */
+.navbar-brand-custom {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+    .navbar-brand-custom img {
+        height: 45px;
+        width: auto;
+        border-radius: 12px;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+.brand-text {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #0b2a4e;
+}
+
+
+.brand-text {
+    font-weight: 800;
+    font-size: 1.7rem;
+    letter-spacing: -0.02em;
+    background: linear-gradient(145deg, #0B1E33, #1D5B9E);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.nav-link {
+    font-weight: 600 !important;
+    font-size: 1.05rem;
+    color: #1e344e !important;
+    padding: 0.6rem 1.3rem !important;
+    border-radius: 40px;
+    margin: 0 3px;
+    transition: all 0.2s;
+}
+
+    .nav-link i {
+        margin-right: 6px;
+        color: #2266bb;
+    }
+
+    .nav-link:hover {
+        background: #e6f0ff;
+        color: #0b4a9e !important;
+        transform: translateY(-1px);
+    }
+
+/* ---------- HERO ---------- */
+.hero-duha {
+    padding: 4rem 1.5rem 6rem;
+    position: relative;
+    background: radial-gradient(ellipse at 20% 30%, #e3f0ff, #ffffff 85%);
+    overflow: hidden;
+}
+
+.hero-title {
+    font-size: 4.5rem;
+    font-weight: 800;
+    line-height: 1.15;
+    background: linear-gradient(135deg, #021c33, #1f509e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: softFloat 5s infinite alternate;
+}
+
+@keyframes softFloat {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-8px);
+    }
+}
+
+.float-grid {
+    position: relative;
+    min-height: 390px;
+}
+
+.f-card {
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(14px);
+    border-radius: 34px;
+    padding: 1.5rem 1rem;
+    box-shadow: 0 30px 35px -15px #00285630;
+    border: 1px solid rgba(255,255,255,0.8);
+    width: 165px;
+    text-align: center;
+    animation: levitate 5.5s infinite alternate ease-in-out;
+    position: absolute;
+    transition: 0.2s;
+}
+
+    .f-card i {
+        font-size: 3.8rem;
+        color: #1b5cb6;
+        margin-bottom: 10px;
+    }
+
+.card-1 {
+    top: 5px;
+    left: 0;
+    animation-delay: 0s;
+}
+
+.card-2 {
+    top: 120px;
+    left: 180px;
+    animation-delay: 0.7s;
+}
+
+.card-3 {
+    top: 30px;
+    left: 360px;
+    animation-delay: 1.3s;
+}
+
+.card-4 {
+    top: 160px;
+    left: 540px;
+    animation-delay: 0.4s;
+}
+
+@keyframes levitate {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(-20px) rotate(0.8deg);
+    }
+}
+
+.btn-duha {
+    background: #0b2a4e;
+    border: none;
+    padding: 15px 40px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border-radius: 60px;
+    color: white;
+    box-shadow: 0 22px 30px -10px #0a2a4e80;
+    border: 1px solid #3f7ec0;
+    transition: 0.25s;
+}
+
+    .btn-duha:hover {
+        background: #1a4880;
+        transform: scale(1.02) translateY(-4px);
+        color: white;
+    }
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(145deg, #0b2642, #2563ac);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* image card styling */
+.img-card {
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 30px 40px -15px #001e4d30;
+    transition: all 0.4s;
+    height: 100%;
+    background: white;
+}
+
+    .img-card:hover {
+        transform: scale(1.01) translateY(-8px);
+        box-shadow: 0 40px 55px -18px #0a3a6e;
+    }
+
+.img-placeholder {
+    height: 260px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    padding: 1rem;
+}
+
+.footer-duha {
+    background: #0b1c2e;
+    color: #cfdef5;
+    padding: 2.8rem 0;
+    border-top: 5px solid #2b6296;
+}
+
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 3.2rem;
+    }
+
+    .float-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .f-card {
+        position: static !important;
+        width: 150px;
+        margin: 5px;
+    }
+}
+
+ 
