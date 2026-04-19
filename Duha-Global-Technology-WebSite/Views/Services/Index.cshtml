@@ -1,0 +1,1582 @@
+﻿@{
+    ViewData["Title"] = "Services";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ 
+    <style>
+        /* ===== SERVICES PAGE ===== */
+
+        /* HERO */
+        .services-hero {
+            padding: 5rem 1.5rem 4rem;
+            background: radial-gradient(ellipse at 20% 40%, #d6eaff, #f6faff 80%);
+            position: relative;
+            overflow: hidden;
+        }
+
+            .services-hero::before {
+                content: '';
+                position: absolute;
+                width: 600px;
+                height: 600px;
+                background: radial-gradient(circle, #b8d8ff18, transparent 70%);
+                top: -200px;
+                right: -150px;
+                border-radius: 50%;
+            }
+
+            .services-hero::after {
+                content: '';
+                position: absolute;
+                width: 280px;
+                height: 280px;
+                background: radial-gradient(circle, #d0e9ff15, transparent 70%);
+                bottom: -80px;
+                left: 80px;
+                border-radius: 50%;
+            }
+
+        .services-page-title {
+            font-size: 3.6rem;
+            font-weight: 800;
+            line-height: 1.12;
+            background: linear-gradient(135deg, #021c33, #1f509e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* SECTION LABEL */
+        .section-label {
+            display: inline-block;
+            background: #eaf2ff;
+            color: #1a5096;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 6px 18px;
+            border-radius: 40px;
+            margin-bottom: 14px;
+        }
+
+        /* DIVIDER */
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d0e4f7, transparent);
+            border: none;
+            margin: 0;
+        }
+
+        /* ── HERO SERVICE CARDS (big 4) ── */
+        .hero-service-card {
+            background: white;
+            border-radius: 32px;
+            padding: 2.2rem 1.8rem;
+            border: 1.5px solid #e0eeff;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.35s;
+            cursor: default;
+        }
+
+            .hero-service-card::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 4px;
+                border-radius: 0 0 32px 32px;
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+
+        .hsc-blue::after {
+            background: linear-gradient(90deg,#0b2a4e,#2266bb);
+        }
+
+        .hsc-green::after {
+            background: linear-gradient(90deg,#198754,#2bc176);
+        }
+
+        .hsc-orange::after {
+            background: linear-gradient(90deg,#e65c00,#f9a825);
+        }
+
+        .hsc-purple::after {
+            background: linear-gradient(90deg,#6a11cb,#2575fc);
+        }
+
+        .hero-service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 32px 52px -16px #0a3a6e30;
+            border-color: #b3d0f0;
+        }
+
+            .hero-service-card:hover::after {
+                opacity: 1;
+            }
+
+        .hsc-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.4rem;
+            transition: all 0.3s;
+        }
+
+        .hsc-blue .hsc-icon {
+            background: #eaf2ff;
+            color: #1a5096;
+        }
+
+        .hsc-green .hsc-icon {
+            background: #eafaf1;
+            color: #198754;
+        }
+
+        .hsc-orange .hsc-icon {
+            background: #fff4e5;
+            color: #e65c00;
+        }
+
+        .hsc-purple .hsc-icon {
+            background: #f3eeff;
+            color: #6a11cb;
+        }
+
+        .hero-service-card:hover .hsc-icon {
+            transform: scale(1.1) rotate(-4deg);
+        }
+
+        .hero-service-card h4 {
+            font-weight: 800;
+            color: #0b1c2e;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .hero-service-card p {
+            color: #6b7d93;
+            font-size: 0.93rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .hsc-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            padding: 4px 12px;
+            border-radius: 40px;
+            margin-bottom: 10px;
+        }
+
+        .hsc-blue .hsc-tag {
+            background: #eaf2ff;
+            color: #1a5096;
+        }
+
+        .hsc-green .hsc-tag {
+            background: #eafaf1;
+            color: #198754;
+        }
+
+        .hsc-orange .hsc-tag {
+            background: #fff4e5;
+            color: #e65c00;
+        }
+
+        .hsc-purple .hsc-tag {
+            background: #f3eeff;
+            color: #6a11cb;
+        }
+
+        /* ── E-COMMERCE SECTION ── */
+        .ecom-section {
+            background: linear-gradient(135deg, #0b2a4e 0%, #163d6e 100%);
+            border-radius: 44px;
+            padding: 4rem 3.5rem;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+            .ecom-section::before {
+                content: '';
+                position: absolute;
+                width: 500px;
+                height: 500px;
+                background: rgba(255,255,255,0.03);
+                border-radius: 50%;
+                top: -180px;
+                right: -120px;
+            }
+
+            .ecom-section::after {
+                content: '';
+                position: absolute;
+                width: 280px;
+                height: 280px;
+                background: rgba(255,255,255,0.025);
+                border-radius: 50%;
+                bottom: -90px;
+                left: 60px;
+            }
+
+        .ecom-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 1.8rem;
+        }
+
+            .ecom-feature:last-child {
+                margin-bottom: 0;
+            }
+
+        .ecom-feat-icon {
+            min-width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: #7ab8f5;
+            transition: all 0.25s;
+        }
+
+        .ecom-feature:hover .ecom-feat-icon {
+            background: #2266bb;
+            border-color: #2266bb;
+            transform: scale(1.08);
+        }
+
+        .ecom-feature h6 {
+            font-weight: 700;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .ecom-feature p {
+            font-size: 0.87rem;
+            color: #a0bdd8;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .platform-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: white;
+            border-radius: 50px;
+            padding: 8px 18px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 5px;
+            transition: all 0.2s;
+        }
+
+            .platform-chip:hover {
+                background: rgba(255,255,255,0.18);
+                transform: translateY(-3px);
+            }
+
+        /* ── DEALERSHIP SECTION ── */
+        .deal-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .deal-step-num {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #0b2a4e;
+            color: #7ab8f5;
+            font-size: 1.3rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            box-shadow: 0 10px 24px -8px #0b2a4e60;
+            transition: all 0.3s;
+        }
+
+        .deal-step:hover .deal-step-num {
+            background: #2266bb;
+            transform: scale(1.1);
+        }
+
+        .deal-step h6 {
+            font-weight: 700;
+            color: #0b1c2e;
+            margin-bottom: 6px;
+        }
+
+        .deal-step p {
+            font-size: 0.85rem;
+            color: #6b7d93;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .deal-connector {
+            position: absolute;
+            top: 28px;
+            right: -28%;
+            width: 56%;
+            height: 2px;
+            background: linear-gradient(90deg, #2266bb, #d0e4f7);
+            z-index: 0;
+        }
+
+        .deal-step {
+            z-index: 1;
+        }
+
+        .deal-perk {
+            background: white;
+            border-radius: 22px;
+            padding: 1.6rem 1.4rem;
+            border: 1.5px solid #e0eeff;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all 0.3s;
+        }
+
+            .deal-perk:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 22px 36px -12px #0a3a6e22;
+                border-color: #b3d0f0;
+            }
+
+        .deal-perk-icon {
+            min-width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            background: #eaf2ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #1a5096;
+            transition: all 0.3s;
+        }
+
+        .deal-perk:hover .deal-perk-icon {
+            background: #0b2a4e;
+            color: #7ab8f5;
+        }
+
+        .deal-perk h6 {
+            font-weight: 700;
+            color: #0b1c2e;
+            margin-bottom: 3px;
+            font-size: 0.95rem;
+        }
+
+        .deal-perk p {
+            font-size: 0.82rem;
+            color: #6b7d93;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* ── DELIVERY / TRANSPORT SECTION ── */
+        .delivery-hero-box {
+            background: linear-gradient(135deg, #198754, #0d6b41);
+            border-radius: 44px;
+            padding: 4rem 3.5rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .delivery-hero-box::before {
+                content: '';
+                position: absolute;
+                width: 450px;
+                height: 450px;
+                background: rgba(255,255,255,0.04);
+                border-radius: 50%;
+                top: -160px;
+                right: -100px;
+            }
+
+            .delivery-hero-box::after {
+                content: '';
+                position: absolute;
+                width: 220px;
+                height: 220px;
+                background: rgba(255,255,255,0.03);
+                border-radius: 50%;
+                bottom: -70px;
+                left: 50px;
+            }
+
+        .delivery-badge-big {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50px;
+            padding: 10px 24px;
+            font-weight: 700;
+            font-size: 1rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .delivery-stat {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 20px;
+            padding: 1.2rem 1rem;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+            .delivery-stat:hover {
+                background: rgba(255,255,255,0.18);
+                transform: translateY(-4px);
+            }
+
+            .delivery-stat .d-num {
+                font-size: 2rem;
+                font-weight: 800;
+                color: white;
+                line-height: 1;
+            }
+
+            .delivery-stat .d-lbl {
+                font-size: 0.78rem;
+                color: rgba(255,255,255,0.7);
+                margin-top: 4px;
+            }
+
+        .delivery-step-card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.8rem 1.5rem;
+            border: 1.5px solid #e0eeff;
+            height: 100%;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+            .delivery-step-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 24px 40px -12px #0a3a6e25;
+                border-color: #b3d0f0;
+            }
+
+        .dsc-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 20px;
+            background: #eaf2ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: #1a5096;
+            margin: 0 auto 1rem;
+            transition: all 0.3s;
+        }
+
+        .delivery-step-card:hover .dsc-icon {
+            background: #0b2a4e;
+            color: #7ab8f5;
+        }
+
+        .delivery-step-card h6 {
+            font-weight: 700;
+            color: #0b1c2e;
+            margin-bottom: 6px;
+        }
+
+        .delivery-step-card p {
+            font-size: 0.85rem;
+            color: #6b7d93;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .free-tag {
+            background: #198754;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            padding: 3px 10px;
+            border-radius: 40px;
+            vertical-align: middle;
+            margin-left: 6px;
+        }
+
+        /* ── CCTV INSTALLATION ── */
+        .install-card {
+            background: white;
+            border-radius: 28px;
+            padding: 2rem 1.8rem;
+            border: 1.5px solid #e0eeff;
+            height: 100%;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .install-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background: linear-gradient(90deg,#0b2a4e,#2266bb);
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+
+            .install-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 28px 44px -14px #0a3a6e25;
+                border-color: #b3d0f0;
+            }
+
+                .install-card:hover::before {
+                    opacity: 1;
+                }
+
+            .install-card .ic-icon {
+                font-size: 2.4rem;
+                color: #1a5096;
+                margin-bottom: 1rem;
+                display: block;
+            }
+
+            .install-card h5 {
+                font-weight: 700;
+                color: #0b1c2e;
+                margin-bottom: 8px;
+            }
+
+            .install-card p {
+                font-size: 0.88rem;
+                color: #6b7d93;
+                line-height: 1.7;
+                margin-bottom: 12px;
+            }
+
+            .install-card ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+                .install-card ul li {
+                    font-size: 0.85rem;
+                    color: #4a6380;
+                    margin-bottom: 6px;
+                }
+
+                    .install-card ul li i {
+                        color: #198754;
+                        margin-right: 7px;
+                    }
+
+        /* ── PRICING PLANS ── */
+        .plan-card {
+            background: white;
+            border-radius: 32px;
+            padding: 2.5rem 2rem;
+            border: 1.5px solid #e0eeff;
+            height: 100%;
+            transition: all 0.3s;
+            position: relative;
+            text-align: center;
+        }
+
+            .plan-card.featured {
+                border: 2px solid #2266bb;
+                box-shadow: 0 20px 40px -12px #2266bb30;
+            }
+
+            .plan-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 32px 52px -16px #0a3a6e30;
+            }
+
+        .plan-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0b2a4e;
+            color: white;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            padding: 5px 18px;
+            border-radius: 40px;
+            white-space: nowrap;
+        }
+
+        .plan-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.9rem;
+            margin: 0 auto 1.2rem;
+        }
+
+        .plan-card h4 {
+            font-weight: 800;
+            color: #0b1c2e;
+            margin-bottom: 6px;
+        }
+
+        .plan-card .plan-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #0b2a4e;
+            line-height: 1;
+            margin: 1rem 0 0.3rem;
+        }
+
+        .plan-card .plan-period {
+            font-size: 0.85rem;
+            color: #8ea3ba;
+            margin-bottom: 1.4rem;
+        }
+
+        .plan-card .plan-desc {
+            font-size: 0.88rem;
+            color: #6b7d93;
+            margin-bottom: 1.4rem;
+            line-height: 1.65;
+        }
+
+        .plan-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.8rem;
+            text-align: left;
+        }
+
+            .plan-card ul li {
+                font-size: 0.87rem;
+                color: #4a6380;
+                margin-bottom: 10px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+                .plan-card ul li i.yes {
+                    color: #198754;
+                }
+
+                .plan-card ul li i.no {
+                    color: #ccc;
+                }
+
+        /* ── PROCESS TIMELINE (horizontal) ── */
+        .process-row {
+            display: flex;
+            gap: 0;
+            align-items: stretch;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding-bottom: 8px;
+        }
+
+        .process-step {
+            flex: 1;
+            min-width: 140px;
+            background: white;
+            border: 1.5px solid #e0eeff;
+            border-radius: 0;
+            padding: 1.8rem 1.2rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+            .process-step:first-child {
+                border-radius: 24px 0 0 24px;
+            }
+
+            .process-step:last-child {
+                border-radius: 0 24px 24px 0;
+            }
+
+            .process-step:hover {
+                background: #f0f7ff;
+                border-color: #b3d0f0;
+                z-index: 1;
+            }
+
+        .ps-num {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #0b2a4e;
+            color: #7ab8f5;
+            font-weight: 800;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+        }
+
+        .process-step h6 {
+            font-weight: 700;
+            color: #0b1c2e;
+            font-size: 0.88rem;
+            margin-bottom: 4px;
+        }
+
+        .process-step p {
+            font-size: 0.78rem;
+            color: #6b7d93;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .ps-arrow {
+            position: absolute;
+            right: -14px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 28px;
+            height: 28px;
+            background: #2266bb;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.7rem;
+            z-index: 2;
+            box-shadow: 0 4px 10px #2266bb40;
+        }
+
+        .process-step:last-child .ps-arrow {
+            display: none;
+        }
+
+        /* ── CTA BANNER ── */
+        .services-cta {
+            background: linear-gradient(135deg, #0b2a4e, #1a5096);
+            border-radius: 40px;
+            padding: 4rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .services-cta::before {
+                content: '';
+                position: absolute;
+                width: 400px;
+                height: 400px;
+                background: rgba(255,255,255,0.04);
+                border-radius: 50%;
+                top: -150px;
+                right: -80px;
+            }
+
+        /* RESPONSIVE */
+        @@media (max-width: 992px) {
+            .ecom-section, .delivery-hero-box
+
+        {
+            padding: 2.5rem 1.8rem;
+            border-radius: 28px;
+        }
+
+        .services-page-title {
+            font-size: 2.6rem;
+        }
+
+        .process-row {
+            flex-wrap: wrap;
+        }
+
+        .process-step {
+            min-width: 46%;
+            border-radius: 16px !important;
+            margin: 4px;
+            border: 1.5px solid #e0eeff;
+        }
+
+        .ps-arrow {
+            display: none !important;
+        }
+
+        }
+        @@media (max-width: 576px) {
+            .services-page-title
+
+        {
+            font-size: 2rem;
+        }
+
+        .ecom-section, .delivery-hero-box {
+            padding: 2rem 1.2rem;
+            border-radius: 22px;
+        }
+
+        .services-cta {
+            padding: 2.5rem 1.2rem;
+            border-radius: 26px;
+        }
+
+        .process-step {
+            min-width: 90%;
+        }
+
+        }
+    </style>
+ 
+
+<!-- ══════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════ -->
+<section class="services-hero">
+    <div class="container position-relative" style="z-index:5;">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6" data-aos="fade-up">
+                <span class="section-label"><i class="fas fa-cogs me-1"></i>Our Services</span>
+                <h1 class="services-page-title">Everything your<br>business needs</h1>
+                <p class="fs-5 text-secondary mt-3 mb-4" style="line-height:1.75;">
+                    From premium product supply to free dealership delivery, e-commerce management to CCTV installation — Duha Global is your end-to-end technology partner.
+                </p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="#dealership-section" class="btn btn-duha"><i class="fas fa-handshake me-2"></i>Become a Dealer</a>
+                    <a href="#contact" class="btn btn-outline-primary rounded-pill px-4 py-3 fw-bold"><i class="fas fa-phone-alt me-2"></i>Talk to Us</a>
+                </div>
+            </div>
+            <div class="col-lg-6 d-none d-lg-block" data-aos="zoom-in-left">
+                <div class="float-grid">
+                    <div class="f-card card-1"><i class="fas fa-shopping-cart"></i><h5>E-commerce</h5><small>Full service</small></div>
+                    <div class="f-card card-2"><i class="fas fa-truck"></i><h5>Free Delivery</h5><small>Dealer ship</small></div>
+                    <div class="f-card card-3"><i class="fas fa-video"></i><h5>CCTV Install</h5><small>Turnkey</small></div>
+                    <div class="f-card card-4"><i class="fas fa-handshake"></i><h5>Dealership</h5><small>300+ partners</small></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     4 CORE SERVICE OVERVIEW CARDS
+══════════════════════════════════════════════════ -->
+<section class="container py-5">
+    <div class="text-center mb-5" data-aos="fade-up">
+        <span class="section-label"><i class="fas fa-th-large me-1"></i>What We Offer</span>
+        <h2 class="section-title">Our core services</h2>
+        <p class="fs-5 text-secondary">Four pillars that power Duha Global Technology.</p>
+    </div>
+    <div class="row g-4">
+
+        <div class="col-sm-6 col-lg-3" data-aos="fade-up">
+            <div class="hero-service-card hsc-blue">
+                <div class="hsc-tag">Accessories</div>
+                <div class="hsc-icon"><i class="fas fa-box-open"></i></div>
+                <h4>Product Supply & Distribution</h4>
+                <p>Premium chargers, cables, headphones, pendrives, power banks — sourced globally and delivered fast with 2-year warranty.</p>
+                <div class="mt-3">
+                    <a href="#" class="text-primary fw-bold text-decoration-none small">Explore products <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="80">
+            <div class="hero-service-card hsc-orange">
+                <div class="hsc-tag">Digital Commerce</div>
+                <div class="hsc-icon"><i class="fas fa-store"></i></div>
+                <h4>E-commerce Solutions</h4>
+                <p>Full-service online selling support — product sourcing, photography, listing optimization, multi-channel management & fulfillment.</p>
+                <div class="mt-3">
+                    <a href="#ecom-section" class="fw-bold text-decoration-none small" style="color:#e65c00;">Learn more <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="160">
+            <div class="hero-service-card hsc-green">
+                <div class="hsc-tag">Partnership</div>
+                <div class="hsc-icon"><i class="fas fa-handshake"></i></div>
+                <h4>Dealership Programme</h4>
+                <p>Become a Duha dealer — get wholesale pricing, free product delivery to your doorstep, marketing assets & priority stock.</p>
+                <div class="mt-3">
+                    <a href="#dealership-section" class="text-success fw-bold text-decoration-none small">Join now <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="240">
+            <div class="hero-service-card hsc-purple">
+                <div class="hsc-tag">Security</div>
+                <div class="hsc-icon"><i class="fas fa-shield-alt"></i></div>
+                <h4>CCTV Installation & Support</h4>
+                <p>End-to-end CCTV solutions — supply, installation, NVR setup, and ongoing maintenance for homes, offices, and industries.</p>
+                <div class="mt-3">
+                    <a href="#cctv-section" class="fw-bold text-decoration-none small" style="color:#6a11cb;">See packages <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════
+     E-COMMERCE SECTION
+══════════════════════════════════════════════════ -->
+<section id="ecom-section" class="container py-5">
+    <div class="ecom-section" data-aos="fade-up">
+        <div class="row align-items-center g-5 position-relative" style="z-index:2;">
+
+            <!-- Left: text -->
+            <div class="col-lg-5">
+                <span class="section-label" style="background:rgba(255,255,255,0.12);color:white;"><i class="fas fa-store me-1"></i>E-Commerce</span>
+                <h2 class="display-5 fw-bold text-white mb-3">Sell smarter.<br>Scale faster.</h2>
+                <p style="color:#a0bdd8;font-size:1rem;line-height:1.75;margin-bottom:1.8rem;">
+                    Whether you are starting your first online store or scaling an existing business across Amazon, Shopify, Daraz and beyond — our full-service e-commerce team handles everything so you can focus on growing.
+                </p>
+                <div class="d-flex flex-wrap gap-2 mb-4">
+                    <span class="platform-chip"><i class="fab fa-amazon"></i> Amazon</span>
+                    <span class="platform-chip"><i class="fas fa-shopping-bag"></i> Shopify</span>
+                    <span class="platform-chip"><i class="fas fa-store-alt"></i> Daraz</span>
+                    <span class="platform-chip"><i class="fas fa-globe"></i> Facebook Shop</span>
+                    <span class="platform-chip"><i class="fas fa-box"></i> WooCommerce</span>
+                    <span class="platform-chip"><i class="fas fa-chart-line"></i> Chaldal / Shajgoj</span>
+                </div>
+                <a href="#contact" class="btn btn-warning fw-bold rounded-pill px-5 py-3">
+                    <i class="fas fa-rocket me-2"></i>Start E-commerce Now
+                </a>
+            </div>
+
+            <!-- Right: features -->
+            <div class="col-lg-7">
+                <div class="ecom-feature">
+                    <div class="ecom-feat-icon"><i class="fas fa-search-dollar"></i></div>
+                    <div>
+                        <h6>Product Sourcing & Private Labeling</h6>
+                        <p>We source trending products globally, brand them under your label, and get them market-ready. From concept to shelf in as little as 2 weeks.</p>
+                    </div>
+                </div>
+                <div class="ecom-feature">
+                    <div class="ecom-feat-icon"><i class="fas fa-camera"></i></div>
+                    <div>
+                        <h6>Professional Product Photography</h6>
+                        <p>Studio-quality product images with white background, lifestyle shots, and infographics — all optimized for Amazon A+ and Shopify listings.</p>
+                    </div>
+                </div>
+                <div class="ecom-feature">
+                    <div class="ecom-feat-icon"><i class="fas fa-layer-group"></i></div>
+                    <div>
+                        <h6>Multi-Channel Inventory Sync</h6>
+                        <p>List on 5+ platforms simultaneously. Real-time inventory sync prevents overselling. Automated order routing and status updates.</p>
+                    </div>
+                </div>
+                <div class="ecom-feature">
+                    <div class="ecom-feat-icon"><i class="fas fa-chart-line"></i></div>
+                    <div>
+                        <h6>Listing SEO & Ad Management</h6>
+                        <p>Keyword-optimized titles, bullet points, and A+ content. PPC campaign management to maximize your ROI on every ad spend.</p>
+                    </div>
+                </div>
+                <div class="ecom-feature">
+                    <div class="ecom-feat-icon"><i class="fas fa-warehouse"></i></div>
+                    <div>
+                        <h6>Warehousing & Fulfillment (3PL)</h6>
+                        <p>Store your products in our Dhaka warehouse. We pick, pack, and ship directly to customers. FBA prep service also available.</p>
+                    </div>
+                </div>
+                <div class="ecom-feature">
+                    <div class="ecom-feat-icon"><i class="fas fa-headset"></i></div>
+                    <div>
+                        <h6>Customer Service & Returns Management</h6>
+                        <p>Dedicated customer support team handles queries, reviews, and returns on your behalf — keeping your seller rating high.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════
+     DEALERSHIP SECTION
+══════════════════════════════════════════════════ -->
+<section id="dealership-section" class="container py-5">
+
+    <div class="text-center mb-5" data-aos="fade-up">
+        <span class="section-label"><i class="fas fa-handshake me-1"></i>Dealership Programme</span>
+        <h2 class="section-title">Become a Duha Dealer</h2>
+        <p class="fs-5 text-secondary">Join 300+ partners growing their business with Duha Global Technology.</p>
+    </div>
+
+    <!-- How it works – Steps -->
+    <div class="row g-3 mb-5 text-center position-relative" data-aos="fade-up">
+        <div class="col-6 col-md-3">
+            <div class="deal-step">
+                <div class="deal-step-num">01</div>
+                <h6>Apply Online</h6>
+                <p>Fill the dealership form with your business details — takes under 3 minutes.</p>
+                <div class="deal-connector d-none d-md-block"></div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="deal-step">
+                <div class="deal-step-num">02</div>
+                <h6>Get Approved</h6>
+                <p>Our team reviews your application and contacts you within 24 hours.</p>
+                <div class="deal-connector d-none d-md-block"></div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="deal-step">
+                <div class="deal-step-num">03</div>
+                <h6>Place First Order</h6>
+                <p>Select from our full product catalog at exclusive wholesale prices.</p>
+                <div class="deal-connector d-none d-md-block"></div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="deal-step">
+                <div class="deal-step-num">04</div>
+                <h6>Free Delivery to You</h6>
+                <p>We deliver directly to your shop or warehouse — completely free of charge.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dealer Perks -->
+    <div class="row g-3 mb-5" data-aos="fade-up">
+        <div class="col-md-6 col-lg-4">
+            <div class="deal-perk">
+                <div class="deal-perk-icon"><i class="fas fa-truck"></i></div>
+                <div>
+                    <h6>Free Delivery to Dealer <span class="free-tag">FREE</span></h6>
+                    <p>Products delivered straight to your doorstep — no shipping cost, no hidden charges. Nationwide coverage.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="deal-perk">
+                <div class="deal-perk-icon"><i class="fas fa-tags"></i></div>
+                <div>
+                    <h6>Exclusive Wholesale Pricing</h6>
+                    <p>Minimum 20–35% below retail price for all active dealers. Better margins = better profits for you.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="deal-perk">
+                <div class="deal-perk-icon"><i class="fas fa-boxes"></i></div>
+                <div>
+                    <h6>Priority Stock Allocation</h6>
+                    <p>Dealers get first access to new arrivals and limited-stock products before they hit the open market.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="deal-perk">
+                <div class="deal-perk-icon"><i class="fas fa-bullhorn"></i></div>
+                <div>
+                    <h6>Marketing & Branding Support</h6>
+                    <p>Ready-to-use product banners, social media creatives, and promotional content — all designed for you.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="deal-perk">
+                <div class="deal-perk-icon"><i class="fas fa-shield-alt"></i></div>
+                <div>
+                    <h6>2-Year Warranty Passthrough</h6>
+                    <p>All products come with full 2-year warranty backed by Duha. Defective items replaced, not just repaired.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="deal-perk">
+                <div class="deal-perk-icon"><i class="fas fa-phone-alt"></i></div>
+                <div>
+                    <h6>Dedicated Account Manager</h6>
+                    <p>Every active dealer gets a personal account manager reachable via WhatsApp, phone, and email.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dealer Tier Table -->
+    <div class="row g-4" data-aos="fade-up">
+        <div class="col-md-4">
+            <div class="plan-card">
+                <div class="plan-icon" style="background:#eaf2ff;"><i class="fas fa-seedling fa-2x" style="color:#1a5096;"></i></div>
+                <h4>Starter Dealer</h4>
+                <p class="plan-desc">Perfect for new retailers and small shops entering the market.</p>
+                <div class="plan-price">৳15K</div>
+                <div class="plan-period">minimum first order</div>
+                <ul>
+                    <li><i class="fas fa-check yes"></i>Free delivery included</li>
+                    <li><i class="fas fa-check yes"></i>20% below retail pricing</li>
+                    <li><i class="fas fa-check yes"></i>2-year warranty</li>
+                    <li><i class="fas fa-check yes"></i>WhatsApp support</li>
+                    <li><i class="fas fa-times no"></i>Priority stock</li>
+                    <li><i class="fas fa-times no"></i>Custom branding</li>
+                </ul>
+                <a href="#contact" class="btn btn-outline-primary rounded-pill w-100 fw-bold">Apply Now</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="plan-card featured">
+                <div class="plan-badge">⭐ Most Popular</div>
+                <div class="plan-icon" style="background:#e0edff;"><i class="fas fa-store fa-2x" style="color:#0b2a4e;"></i></div>
+                <h4>Active Dealer</h4>
+                <p class="plan-desc">For established retailers growing their accessories business.</p>
+                <div class="plan-price">৳50K</div>
+                <div class="plan-period">minimum monthly order</div>
+                <ul>
+                    <li><i class="fas fa-check yes"></i>Free delivery — always</li>
+                    <li><i class="fas fa-check yes"></i>28% below retail pricing</li>
+                    <li><i class="fas fa-check yes"></i>2-year warranty</li>
+                    <li><i class="fas fa-check yes"></i>Dedicated account manager</li>
+                    <li><i class="fas fa-check yes"></i>Priority stock access</li>
+                    <li><i class="fas fa-check yes"></i>Marketing creatives</li>
+                </ul>
+                <a href="#contact" class="btn btn-duha rounded-pill w-100 fw-bold">Apply Now</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="plan-card">
+                <div class="plan-icon" style="background:#fff4e5;"><i class="fas fa-crown fa-2x" style="color:#e65c00;"></i></div>
+                <h4>Platinum Partner</h4>
+                <p class="plan-desc">For large distributors, chains, and regional wholesalers.</p>
+                <div class="plan-price">৳2L+</div>
+                <div class="plan-period">monthly volume</div>
+                <ul>
+                    <li><i class="fas fa-check yes"></i>Free delivery + express option</li>
+                    <li><i class="fas fa-check yes"></i>35% below retail pricing</li>
+                    <li><i class="fas fa-check yes"></i>2-year warranty</li>
+                    <li><i class="fas fa-check yes"></i>Executive account manager</li>
+                    <li><i class="fas fa-check yes"></i>First access to new launches</li>
+                    <li><i class="fas fa-check yes"></i>Custom white-label options</li>
+                </ul>
+                <a href="#contact" class="btn btn-outline-warning rounded-pill w-100 fw-bold" style="color:#e65c00;border-color:#e65c00;">Contact Sales</a>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════
+     FREE DELIVERY / TRANSPORT
+══════════════════════════════════════════════════ -->
+<section class="container py-5">
+    <div class="delivery-hero-box" data-aos="fade-up">
+        <div class="row align-items-center g-5 position-relative" style="z-index:2;">
+            <div class="col-lg-6">
+                <div class="delivery-badge-big">
+                    <i class="fas fa-truck-fast"></i> FREE Delivery on All Dealer Orders
+                </div>
+                <h2 class="display-5 fw-bold text-white mb-3">We bring it<br>to your door — free.</h2>
+                <p style="color:rgba(255,255,255,0.75);font-size:1rem;line-height:1.75;margin-bottom:1.8rem;">
+                    Every Duha dealer enjoys completely free product delivery — no minimum, no conditions. Whether you order 10 units or 10,000 units, we transport it to your shop, warehouse, or preferred location at zero cost to you.
+                </p>
+                <div class="d-flex flex-wrap gap-3">
+                    <div style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:14px;padding:12px 20px;display:flex;align-items:center;gap:10px;">
+                        <i class="fas fa-check-circle text-warning fa-lg"></i>
+                        <span style="color:white;font-weight:600;font-size:0.9rem;">Inside Dhaka — Same day</span>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:14px;padding:12px 20px;display:flex;align-items:center;gap:10px;">
+                        <i class="fas fa-check-circle text-warning fa-lg"></i>
+                        <span style="color:white;font-weight:600;font-size:0.9rem;">Outside Dhaka — 1–2 days</span>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:14px;padding:12px 20px;display:flex;align-items:center;gap:10px;">
+                        <i class="fas fa-check-circle text-warning fa-lg"></i>
+                        <span style="color:white;font-weight:600;font-size:0.9rem;">International — 5–7 days</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="delivery-stat">
+                            <div class="d-num">100%</div>
+                            <div class="d-lbl">Free for Dealers</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="delivery-stat">
+                            <div class="d-num">64</div>
+                            <div class="d-lbl">Districts Covered</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="delivery-stat">
+                            <div class="d-num">24h</div>
+                            <div class="d-lbl">Max Dhaka Delivery</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="delivery-stat">
+                            <div class="d-num">98%</div>
+                            <div class="d-lbl">On-Time Rate</div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="delivery-stat" style="padding:1.4rem;">
+                            <i class="fas fa-shield-alt fa-2x mb-2" style="color:rgba(255,255,255,0.8);"></i>
+                            <div class="d-num" style="font-size:1.4rem;">Fully Insured</div>
+                            <div class="d-lbl">Every shipment insured. Damaged in transit? We replace free.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delivery How It Works -->
+    <div class="text-center my-5" data-aos="fade-up">
+        <span class="section-label"><i class="fas fa-route me-1"></i>Delivery Process</span>
+        <h2 class="section-title mb-2">How delivery works</h2>
+        <p class="text-secondary">From order to your door in just a few steps.</p>
+    </div>
+    <div class="process-row" data-aos="fade-up">
+        <div class="process-step">
+            <div class="ps-num">1</div>
+            <i class="fas fa-clipboard-list fa-lg mb-2 text-primary d-block"></i>
+            <h6>Place Order</h6>
+            <p>Call, WhatsApp, or order via our dealer portal</p>
+            <div class="ps-arrow"><i class="fas fa-chevron-right"></i></div>
+        </div>
+        <div class="process-step">
+            <div class="ps-num">2</div>
+            <i class="fas fa-check-double fa-lg mb-2 text-success d-block"></i>
+            <h6>Confirm & Pack</h6>
+            <p>Order confirmed, products QC-checked & packed</p>
+            <div class="ps-arrow"><i class="fas fa-chevron-right"></i></div>
+        </div>
+        <div class="process-step">
+            <div class="ps-num">3</div>
+            <i class="fas fa-barcode fa-lg mb-2 text-warning d-block"></i>
+            <h6>Tracking Issued</h6>
+            <p>Real-time tracking link sent to your phone/email</p>
+            <div class="ps-arrow"><i class="fas fa-chevron-right"></i></div>
+        </div>
+        <div class="process-step">
+            <div class="ps-num">4</div>
+            <i class="fas fa-truck fa-lg mb-2 text-primary d-block"></i>
+            <h6>In Transit</h6>
+            <p>Dispatched via our courier partner — Pathao / Steadfast / SA Paribahan</p>
+            <div class="ps-arrow"><i class="fas fa-chevron-right"></i></div>
+        </div>
+        <div class="process-step">
+            <div class="ps-num">5</div>
+            <i class="fas fa-store fa-lg mb-2 text-success d-block"></i>
+            <h6>Delivered!</h6>
+            <p>Products arrive at your shop — inspect, confirm & start selling</p>
+        </div>
+    </div>
+
+    <!-- Non-dealer delivery info -->
+    <div class="row g-4 mt-4" data-aos="fade-up">
+        <div class="col-md-4">
+            <div class="delivery-step-card">
+                <div class="dsc-icon"><i class="fas fa-city"></i></div>
+                <h6>Inside Dhaka <span class="free-tag">FREE</span></h6>
+                <p>Orders above ৳1,500 — free delivery anywhere inside Dhaka city. Same-day dispatch before 2PM.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="delivery-step-card">
+                <div class="dsc-icon"><i class="fas fa-map-marked-alt"></i></div>
+                <h6>Nationwide Delivery</h6>
+                <p>All 64 districts covered. Delivery charge ৳100–150 for retail orders. 1–3 business days. Fully tracked.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="delivery-step-card">
+                <div class="dsc-icon"><i class="fas fa-globe-asia"></i></div>
+                <h6>International Shipping</h6>
+                <p>Export to 12+ countries via DHL, FedEx, and EMS. Custom duties & documentation handled by our team.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════
+     CCTV INSTALLATION
+══════════════════════════════════════════════════ -->
+<section id="cctv-section" class="container py-5">
+    <div class="text-center mb-5" data-aos="fade-up">
+        <span class="section-label"><i class="fas fa-video me-1"></i>CCTV Services</span>
+        <h2 class="section-title">Complete CCTV solutions</h2>
+        <p class="fs-5 text-secondary">Supply · Installation · Commissioning · Annual Maintenance Contracts</p>
+    </div>
+    <div class="row g-4">
+
+        <div class="col-md-6 col-lg-3" data-aos="fade-up">
+            <div class="install-card">
+                <i class="fas fa-home ic-icon"></i>
+                <h5>Home Security</h5>
+                <p>Protect your family and property with smart indoor/outdoor cameras and mobile alerts.</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i>2–8 camera setup</li>
+                    <li><i class="fas fa-check-circle"></i>Night vision up to 30m</li>
+                    <li><i class="fas fa-check-circle"></i>Mobile app access</li>
+                    <li><i class="fas fa-check-circle"></i>1TB NVR storage</li>
+                    <li><i class="fas fa-check-circle"></i>Free installation</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="80">
+            <div class="install-card">
+                <i class="fas fa-building ic-icon"></i>
+                <h5>Office & Commercial</h5>
+                <p>Multi-camera setups with NVR, access control, and remote monitoring for offices and retail stores.</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i>8–32 camera systems</li>
+                    <li><i class="fas fa-check-circle"></i>4K resolution available</li>
+                    <li><i class="fas fa-check-circle"></i>AI human detection</li>
+                    <li><i class="fas fa-check-circle"></i>Cloud + local storage</li>
+                    <li><i class="fas fa-check-circle"></i>Annual Maintenance Contract</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="160">
+            <div class="install-card">
+                <i class="fas fa-industry ic-icon"></i>
+                <h5>Industrial & Factory</h5>
+                <p>Heavy-duty IP66/IP67 cameras for factories, warehouses, and large perimeter surveillance.</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i>32+ camera scalable</li>
+                    <li><i class="fas fa-check-circle"></i>PTZ + fixed cameras</li>
+                    <li><i class="fas fa-check-circle"></i>Vehicle detection</li>
+                    <li><i class="fas fa-check-circle"></i>Explosion-proof options</li>
+                    <li><i class="fas fa-check-circle"></i>24/7 monitoring support</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="240">
+            <div class="install-card">
+                <i class="fas fa-tools ic-icon"></i>
+                <h5>Maintenance & AMC</h5>
+                <p>Annual Maintenance Contracts for existing CCTV systems — keep your surveillance healthy and updated.</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i>Quarterly site visits</li>
+                    <li><i class="fas fa-check-circle"></i>Firmware updates</li>
+                    <li><i class="fas fa-check-circle"></i>Camera cleaning & alignment</li>
+                    <li><i class="fas fa-check-circle"></i>Free emergency callout (48h)</li>
+                    <li><i class="fas fa-check-circle"></i>Parts discount 15%</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════
+     TESTIMONIALS
+══════════════════════════════════════════════════ -->
+<section class="container py-5">
+    <div class="text-center mb-5" data-aos="fade-up">
+        <span class="section-label"><i class="fas fa-quote-left me-1"></i>What Dealers Say</span>
+        <h2 class="section-title">Our partners love us</h2>
+    </div>
+    <div class="row g-4">
+
+        <div class="col-md-4" data-aos="fade-up">
+            <div class="bg-white rounded-4 p-4 h-100 border" style="border-color:#e0eeff !important; border-width:1.5px !important;">
+                <div class="mb-3" style="color:#f4a300;font-size:1.1rem;">★★★★★</div>
+                <p class="text-secondary" style="line-height:1.75;">"Duha's free delivery to my shop in Chittagong saved me ৳8,000 a month. The products sell themselves — quality is excellent and customers come back."</p>
+                <div class="d-flex align-items-center gap-3 mt-3">
+                    <div style="width:44px;height:44px;border-radius:50%;background:#0b2a4e;display:flex;align-items:center;justify-content:center;font-weight:800;color:#7ab8f5;">KA</div>
+                    <div>
+                        <div class="fw-bold text-dark small">Kamal Ahmed</div>
+                        <div class="text-muted" style="font-size:0.78rem;">Mobile Shop Owner, Chittagong</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="80">
+            <div class="bg-white rounded-4 p-4 h-100 border" style="border-color:#e0eeff !important; border-width:1.5px !important;">
+                <div class="mb-3" style="color:#f4a300;font-size:1.1rem;">★★★★★</div>
+                <p class="text-secondary" style="line-height:1.75;">"We scaled from 5 to 50 orders a day on Amazon using Duha's e-commerce service. Their product photography and listing optimization is world-class."</p>
+                <div class="d-flex align-items-center gap-3 mt-3">
+                    <div style="width:44px;height:44px;border-radius:50%;background:#198754;display:flex;align-items:center;justify-content:center;font-weight:800;color:white;">RH</div>
+                    <div>
+                        <div class="fw-bold text-dark small">Rina Hossain</div>
+                        <div class="text-muted" style="font-size:0.78rem;">Amazon Seller, Dhaka</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="160">
+            <div class="bg-white rounded-4 p-4 h-100 border" style="border-color:#e0eeff !important; border-width:1.5px !important;">
+                <div class="mb-3" style="color:#f4a300;font-size:1.1rem;">★★★★★</div>
+                <p class="text-secondary" style="line-height:1.75;">"Duha installed 24 cameras across our factory. The AI motion detection caught an attempted theft at 3AM. Their AMC team responds within hours. Highly recommended!"</p>
+                <div class="d-flex align-items-center gap-3 mt-3">
+                    <div style="width:44px;height:44px;border-radius:50%;background:#e65c00;display:flex;align-items:center;justify-content:center;font-weight:800;color:white;">TI</div>
+                    <div>
+                        <div class="fw-bold text-dark small">Tanvir Islam</div>
+                        <div class="text-muted" style="font-size:0.78rem;">Factory Manager, Gazipur</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════
+     FAQ
+══════════════════════════════════════════════════ -->
+<section class="container py-5">
+    <div class="text-center mb-5" data-aos="fade-up">
+        <span class="section-label"><i class="fas fa-question-circle me-1"></i>FAQ</span>
+        <h2 class="section-title">Common questions</h2>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-8" data-aos="fade-up">
+            <div class="accordion" id="faqAccordion">
+
+                <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button rounded-4 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            <i class="fas fa-truck me-3 text-primary"></i>Is delivery really free for all dealers?
+                        </button>
+                    </h2>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-secondary">
+                            Yes — 100% free delivery for all registered Duha dealers, regardless of order size. Inside Dhaka we deliver same-day or next-day. Outside Dhaka takes 1–2 business days. No hidden courier charges ever.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button rounded-4 fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            <i class="fas fa-store me-3 text-primary"></i>How do I apply to become a dealer?
+                        </button>
+                    </h2>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-secondary">
+                            Simply contact us via WhatsApp, phone, or the form on our Contact page. Share your shop name, location, and what category you're interested in. Our team will get back to you within 24 hours with your dealer account details.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button rounded-4 fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            <i class="fas fa-shopping-cart me-3 text-primary"></i>What does the e-commerce service include?
+                        </button>
+                    </h2>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-secondary">
+                            Our e-commerce service covers everything: product sourcing, private labeling, photography, listing creation, SEO optimization, ad management, inventory sync, order fulfillment, and customer service. You can take as many or as few services as you need.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button rounded-4 fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                            <i class="fas fa-video me-3 text-primary"></i>Do you install CCTV outside Dhaka?
+                        </button>
+                    </h2>
+                    <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-secondary">
+                            Yes! Our CCTV installation team covers Dhaka, Chittagong, Sylhet, Rajshahi, Khulna, and surrounding areas. For remote locations we can also provide complete DIY kits with video installation guides and remote support.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item border-0 rounded-4 overflow-hidden shadow-sm">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button rounded-4 fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                            <i class="fas fa-shield-alt me-3 text-primary"></i>What happens if a product is damaged during delivery?
+                        </button>
+                    </h2>
+                    <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-secondary">
+                            All Duha shipments are fully insured. If a product arrives damaged, just send us a photo within 24 hours of delivery and we will replace it free of charge — no questions asked. Your investment is 100% protected.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     FINAL CTA
+══════════════════════════════════════════════════ -->
+<section class="container py-5" data-aos="fade-up">
+    <div class="services-cta">
+        <div class="position-relative" style="z-index:2;">
+            <span class="badge bg-warning text-dark mb-3 px-3 py-2 fs-6"><i class="fas fa-bolt me-1"></i>Get Started Today</span>
+            <h2 class="display-5 fw-bold text-white mb-3">Ready to grow with Duha?</h2>
+            <p class="fs-5 mb-4" style="color:#a0bdd8;max-width:580px;margin:0 auto 1.5rem;">
+                Whether you want to become a dealer, launch an online store, install CCTV, or source premium accessories — we are one message away.
+            </p>
+            <div class="d-flex flex-wrap gap-3 justify-content-center">
+                <a href="https://wa.me/8801XXXXXXXXX" target="_blank" class="btn btn-success fw-bold rounded-pill px-5 py-3 fs-5">
+                    <i class="fab fa-whatsapp me-2"></i>WhatsApp Us Now
+                </a>
+                <a href="#contact" class="btn btn-outline-light fw-bold rounded-pill px-5 py-3 fs-5">
+                    <i class="fas fa-envelope me-2"></i>Send Enquiry
+                </a>
+                <a href="tel:+8801XXXXXXXXX" class="btn btn-warning fw-bold rounded-pill px-5 py-3 fs-5">
+                    <i class="fas fa-phone-alt me-2"></i>Call Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
