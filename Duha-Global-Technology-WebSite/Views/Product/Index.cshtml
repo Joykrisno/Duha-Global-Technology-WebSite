@@ -1,0 +1,1030 @@
+﻿@{
+    ViewData["Title"] = "Product";
+ 
+}
+
+
+<!-- PRODUCTS HERO -->
+<section class="products-hero">
+    <div class="container position-relative" style="z-index:5;">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-6" data-aos="fade-up">
+                <span class="badge bg-white bg-opacity-60 text-primary px-4 py-2 rounded-pill mb-3 d-inline-block">
+                    <i class="fas fa-box-open me-2"></i> Our Product Catalog
+                </span>
+                <h1 class="page-title">Premium Products<br>for Every Need</h1>
+                <p class="fs-5 text-secondary mt-3">Chargers · Cables · Headphones · Pendrives · CCTV · Electric Items</p>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="search-wrapper ms-lg-auto">
+                    <input type="text" id="productSearch" placeholder="Search products (e.g. GaN charger, headphones...)" />
+                    <span class="search-icon"><i class="fas fa-search"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col stat-item">
+                <div class="stat-num">120+</div>
+                <div class="stat-label">Products</div>
+            </div>
+            <div class="col stat-item">
+                <div class="stat-num">12+</div>
+                <div class="stat-label">Countries</div>
+            </div>
+            <div class="col stat-item">
+                <div class="stat-num">50K+</div>
+                <div class="stat-label">Happy Customers</div>
+            </div>
+            <div class="col stat-item">
+                <div class="stat-num">2yr</div>
+                <div class="stat-label">Warranty</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MAIN PRODUCT SECTION -->
+<section class="container py-5">
+
+    <!-- FILTER TABS -->
+    <div class="filter-tabs" data-aos="fade-up" id="filterTabs">
+        <button class="filter-tab active" data-filter="all"><i class="fas fa-th"></i>All Products</button>
+        <button class="filter-tab" data-filter="charger"><i class="fas fa-charging-station"></i>Chargers</button>
+        <button class="filter-tab" data-filter="cable"><i class="fas fa-plug"></i>Cables</button>
+        <button class="filter-tab" data-filter="audio"><i class="fas fa-headphones"></i>Headphones</button>
+        <button class="filter-tab" data-filter="storage"><i class="fas fa-hdd"></i>Pendrives & Storage</button>
+        <button class="filter-tab" data-filter="cctv"><i class="fas fa-video"></i>CCTV</button>
+        <button class="filter-tab" data-filter="electric"><i class="fas fa-bolt"></i>Electric Items</button>
+        <button class="filter-tab" data-filter="powerbank"><i class="fas fa-battery-three-quarters"></i>Power Banks</button>
+    </div>
+
+    <!-- RESULTS BAR -->
+    <div class="results-bar" data-aos="fade-up">
+        <span class="results-count" id="resultsCount"><i class="fas fa-layer-group me-1"></i> Showing all 24 products</span>
+        <select class="sort-select" id="sortSelect">
+            <option value="">Sort: Featured</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+        </select>
+    </div>
+
+    <!-- PROMO BANNER -->
+    <div class="promo-banner" data-aos="fade-up">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <span class="badge bg-warning text-dark mb-2">Limited Time</span>
+                <h4 class="fw-bold mb-1">Buy 3 Get 15% OFF on all Chargers & Cables!</h4>
+                <p class="mb-0 opacity-75">Use code <strong>DUHA15</strong> at checkout. Valid till 30 April 2026.</p>
+            </div>
+            <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                <a href="#chargers" class="btn btn-light fw-bold px-4 py-2 rounded-pill">Shop Now <i class="fas fa-arrow-right ms-1"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRODUCT GRID -->
+    <div class="row g-4" id="productGrid">
+
+        <!-- ===== CHARGERS ===== -->
+        <div class="col-sm-6 col-lg-4 col-xl-3 product-item" data-category="charger" data-price="1850" data-rating="4.8" data-aos="fade-up">
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://images.pexels.com/photos/5926382/pexels-photo-5926382.jpeg?auto=compress&cs=tinysrgb&w=600" alt="GaN 65W Charger" onerror="this.parentElement.innerHTML='<i class=\'fas fa-charging-station product-icon-fallback\'></i>'" />
+                    <div class="product-badges"><span class="badge-new">NEW</span><span class="badge-hot">HOT</span></div>
+                    <button class="product-wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category-tag"><i class="fas fa-charging-station me-1"></i>Charger</div>
+                    <div class="product-name">GaN 65W Fast Charger</div>
+                    <div class="product-desc">Triple port (2×USB-C + USB-A), foldable plug, compact design for travel & office.</div>
+                    <div class="product-rating"><span class="stars">★★★★★</span><span class="count">(4.8 · 312 reviews)</span></div>
+                    <div class="product-price-row">
+                        <span><span class="price-current">৳1,850</span><span class="price-old">৳2,400</span></span>
+                        <button class="btn-add-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 col-xl-3 product-item" data-category="charger" data-price="2600" data-rating="4.7" data-aos="fade-up" data-aos-delay="50">
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://images.pexels.com/photos/4526414/pexels-photo-4526414.jpeg?auto=compress&cs=tinysrgb&w=600" alt="100W Charger" onerror="this.parentElement.innerHTML='<i class=\'fas fa-charging-station product-icon-fallback\'></i>'" />
+                    <div class="product-badges"><span class="badge-best">BEST SELLER</span></div>
+                    <button class="product-wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category-tag"><i class="fas fa-charging-station me-1"></i>Charger</div>
+                    <div class="product-name">GaN 100W Pro Charger</div>
+                    <div class="product-desc">Laptop + phone simultaneous charging. Supports MacBook, Dell, Lenovo. 4-port design.</div>
+                    <div class="product-rating"><span class="stars">★★★★★</span><span class="count">(4.7 · 198 reviews)</span></div>
+                    <div class="product-price-row">
+                        <span><span class="price-current">৳2,600</span><span class="price-old">৳3,200</span></span>
+                        <button class="btn-add-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 col-xl-3 product-item" data-category="charger" data-price="950" data-rating="4.5" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://images.pexels.com/photos/3997353/pexels-photo-3997353.jpeg?auto=compress&cs=tinysrgb&w=600" alt="20W PD Charger" onerror="this.parentElement.innerHTML='<i class=\'fas fa-charging-station product-icon-fallback\'></i>'" />
+                    <div class="product-badges"><span class="badge-sale">SALE</span></div>
+                    <button class="product-wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category-tag"><i class="fas fa-charging-station me-1"></i>Charger</div>
+                    <div class="product-name">20W PD USB-C Charger</div>
+                    <div class="product-desc">Fast charge for iPhone 15/14/13, Samsung, Xiaomi. Nano size, global travel-safe.</div>
+                    <div class="product-rating"><span class="stars">★★★★½</span><span class="count">(4.5 · 524 reviews)</span></div>
+                    <div class="product-price-row">
+                        <span><span class="price-current">৳950</span><span class="price-old">৳1,200</span></span>
+                        <button class="btn-add-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 col-xl-3 product-item" data-category="charger" data-price="3200" data-rating="4.9" data-aos="fade-up" data-aos-delay="150">
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://images.pexels.com/photos/5082581/pexels-photo-5082581.jpeg?auto=compress&cs=tinysrgb&w=600" alt="200W Desktop Charger" onerror="this.parentElement.innerHTML='<i class=\'fas fa-charging-station product-icon-fallback\'></i>'" />
+                    <div class="product-badges"><span class="badge-new">NEW</span></div>
+                    <button class="product-wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category-tag"><i class="fas fa-charging-station me-1"></i>Charger</div>
+                    <div class="product-name">200W Desktop GaN Station</div>
+                    <div class="product-desc">6-port desktop charging station. Powers all your devices at once. Perfect for workspace.</div>
+                    <div class="product-rating"><span class="stars">★★★★★</span><span class="count">(4.9 · 87 reviews)</span></div>
+                    <div class="product-price-row">
+                        <span><span class="price-current">৳3,200</span></span>
+                        <button class="btn-add-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== CABLES ===== -->
+        <div class="col-sm-6 col-lg-4 col-xl-3 product-item" data-category="cable" data-price="450" data-rating="4.6" data-aos="fade-up">
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://images.pexels.com/photos/1440727/pexels-photo-1440727.jpeg?auto=compress&cs=tinysrgb&w=600" alt="USB-C Cable" onerror="this.parentElement.innerHTML='<i class=\'fas fa-plug product-icon-fallback\'></i>'" />
+                    <div class="product-badges"><span class="badge-best">TOP PICK</span></div>
+                    <button class="product-wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category-tag"><i class="fas fa-plug me-1"></i>Cable</div>
+                    <div class="product-name">240W USB-C to USB-C Cable</div>
+                    <div class="product-desc">2m braided nylon cable. 240W fast charge support. Compatible with all USB-C devices.</div>
+                    <div class="product-rating"><span class="stars">★★★★½</span><span class="count">(4.6 · 741 reviews)</span></div>
+                    <div class="product-price-row">
+                        <span><span class="price-current">৳450</span><span class="price-old">৳600</span></span>
+                        <button class="btn-add-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 col-xl-3 product-item" data-category="cable" data-price="380" data-rating="4.4" data-aos="fade-up" data-aos-delay="50">
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://images.pexels.com/photos/163007/phone-android-apps-s6-163007.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Lightning Cable" onerror="this.parentElement.innerHTML='<i class=\'fas fa-plug product-icon-fallback\'></i>'" />
+                    <button class="product-wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category-tag"><i class="fas fa-plug me-1"></i>Cable</div>
+                    <div class="product-name">Lightning to USB-C Cable</div>
+                    <div class="product-desc">MFi certified. 1m & 2m options. Braided, tangle-free. For iPhone & iPad.</div>
+                    <div class="product-rating"><span class="stars">★★★★</span><span class="count">(4.4 · 355 reviews)</span></div>
+                    <div class="product-price-row">
+                        <span><span class="price-current">৳380</span></span>
+                        <button class="btn-add-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 col-xl-3 product-item" data-category="cable" data-price="520" data-rating="4.7" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://images.pexels.com/photos/1038916/pexels-photo-1038916.jpeg?auto=compress&cs=tinysrgb&w=600" alt="3-in-1 Cable" onerror="this.parentElement.innerHTML='<i class=\'fas fa-plug product-icon-fallback\'></i>'" />
+                    <div class="product-badges"><span class="badge-hot">POPULAR</span></div>
+                    <button class="product-wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category-tag"><i class="fas fa-plug me-1"></i>Cable</div>
+                    <div class="product-name">3-in-1 Multi Charging Cable</div>
+                    <div class="product-desc">USB-C + Lightning + Micro-USB in one cable. Perfect for families & offices. 1.2m.</div>
+                    <div class="product-rating"><span class="stars">★★★★★</span><span class="count">(4.7 · 219 reviews)</span></div>
+                    <div class="product-price-row">
+                        <span><span class="price-current">৳520</span><span class="price-old">৳700</span></span>
+                        <button class="btn-add-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== HEADPHONES / AUDIO ===== -->
+        <div class="col-sm-6 col-lg-4 col-xl-3 product-item" data-category="audio" data-price="4800" data-rating="4.9" data-aos="fade-up">
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg?auto=compress&cs=tinysrgb&w=600" alt="ANC Headphones" onerror="this.parentElement.innerHTML='<i class=\'fas fa-headphones product-icon-fallback\'></i>'" />
+                    <div class="product-badges"><span class="badge-best">BEST SELLER</span></div>
+                    <button class="product-wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category-tag"><i class="fas fa-headphones me-1"></i>Audio</div>
+                    <div class="product-name">Duha Pro ANC Headphones</div>
+                    <div class="product-desc">40h battery, Hybrid ANC, foldable, Bluetooth 5.3. Studio-grade sound for work & travel.</div>
+                    <div class="product-rating"><span class="stars">★★★★★</span><span class="count">(4.9 · 567 reviews)</span></div>
+                    <div class="product-price-row">
+                        <span><span class="price-current">৳4,800</span><span class="price-old">৳6,500</span></span>
+                        <button class="btn-add-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 col-xl-3 product-item" data-category="audio" data-price="2200" data-rating="4.6" data-aos="fade-up" data-aos-delay="50">
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&cs=tinysrgb&w=600" alt="TWS Earbuds" onerror="this.parentElement.innerHTML='<i class=\'fas fa-headphones product-icon-fallback\'></i>'" />
+                    <div class="product-badges"><span class="badge-new">NEW</span></div>
+                    <button class="product-wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category-tag"><i class="fas fa-headphones me-1"></i>Audio</div>
+                    <div class="product-name">Duha Air TWS Earbuds</div>
+                    <div class="product-desc">ENC call noise reduction, 28h total battery, IPX5 water-resistant. Crystal clear calls.</div>
+                    <div class="product-rating"><span class="stars">★★★★½</span><span class="count">(4.6 · 402 reviews)</span></div>
+                    <div class="product-price-row">
+                        <span><span class="price-current">৳2,200</span><span class="price-old">৳3,000</span></span>
+                        <button class="btn-add-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 col-xl-3 product-item" data-category="audio" data-price="1200" data-rating="4.3" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://images.pexels.com/photos/3587478/pexels-photo-3587478.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Wired Earphones" onerror="this.parentElement.innerHTML='<i class=\'fas fa-headphones product-icon-fallback\'></i>'" />
+                    <button class="product-wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category-tag"><i class="fas fa-headphones me-1"></i>Audio</div>
+                    <div class="product-name">Duha Bass+ Wired Earphones</div>
+                    <div class="product-desc">Deep bass, 3.5mm + USB-C adapter included. In-line mic, tangle-free flat cable.</div>
+                    <div class="product-rating"><span class="stars">★★★★</span><span class="count">(4.3 · 284 reviews)</span></div>
+                    <div class="product-price-row">
+                        <span><span class="price-current">৳1,200</span></span>
+                        <button class="btn-add-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PENDRIVES / STORAGE ===== -->
+        <div class="col-sm-6 col-lg-4 col-xl-3 product-item" data-category="storage" data-price="680" data-rating="4.5" data-aos="fade-up">
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://images.pexels.com/photos/4792733/pexels-photo-4792733.jpeg?auto=compress&cs=tinysrgb&w=600" alt="USB 3.0 Pendrive" onerror="this.parentElement.innerHTML='<i class=\'fas fa-hdd product-icon-fallback\'></i>'" />
+                    <div class="product-badges"><span class="badge-hot">FAST</span></div>
+                    <button class="product-wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category-tag"><i class="fas fa-hdd me-1"></i>Storage</div>
+                    <div class="product-name">64GB USB 3.0 Pendrive</div>
+                    <div class="product-desc">150MB/s read speed. Metal casing, waterproof, shock-resistant. Plug & play.</div>
+                    <div class="product-rating"><span class="stars">★★★★½</span><span class="count">(4.5 · 619 reviews)</span></div>
+                    <div class="product-price-row">
+                        <span><span class="price-current">৳680</span><span class="price-old">৳850</span></span>
+                        <button class="btn-add-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 col-xl-3 product-item" data-category="storage" data-price="1100" data-rating="4.7" data-aos="fade-up" data-aos-delay="50">
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://images.pexels.com/photos/1294886/pexels-photo-1294886.jpeg?auto=compress&cs=tinysrgb&w=600" alt="128GB OTG Pendrive" onerror="this.parentElement.innerHTML='<i class=\'fas fa-hdd product-icon-fallback\'></i>'" />
+                    <div class="product-badges"><span class="badge-new">NEW</span></div>
+                    <button class="product-wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category-tag"><i class="fas fa-hdd me-1"></i>Storage</div>
+                    <div class="product-name">128GB OTG Dual Pendrive</div>
+                    <div class="product-desc">USB-A + USB-C dual head. Works with Android, PC & Mac. 128GB storage, 200MB/s.</div>
+                    <div class="product-rating"><span class="stars">★★★★★</span><span class="count">(4.7 · 188 reviews)</span></div>
+                    <div class="product-price-row">
+                        <span><span class="price-current">৳1,100</span><span class="price-old">৳1,400</span></span>
+                        <button class="btn-add-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== CCTV ===== -->
+        <div class="col-sm-6 col-lg-4 col-xl-3 product-item" data-category="cctv" data-price="8500" data-rating="4.8" data-aos="fade-up">
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://images.pexels.com/photos/96612/pexels-photo-96612.jpeg?auto=compress&cs=tinysrgb&w=600" alt="4K IP Camera" onerror="this.parentElement.innerHTML='<i class=\'fas fa-video product-icon-fallback\'></i>'" />
+                    <div class="product-badges"><span class="badge-best">PRO</span></div>
+                    <button class="product-wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category-tag"><i class="fas fa-video me-1"></i>CCTV</div>
+                    <div class="product-name">4K AI IP Dome Camera</div>
+                    <div class="product-desc">8MP 4K resolution, color night vision, AI human detection, remote access via app. IP67 rated.</div>
+                    <div class="product-rating"><span class="stars">★★★★★</span><span class="count">(4.8 · 143 reviews)</span></div>
+                    <div class="product-price-row">
+                        <span><span class="price-current">৳8,500</span><span class="price-old">৳11,000</span></span>
+                        <button class="btn-add-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 col-xl-3 product-item" data-category="cctv" data-price="6200" data-rating="4.6" data-aos="fade-up" data-aos-delay="50">
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg?auto=compress&cs=tinysrgb&w=600" alt="PTZ Camera" onerror="this.parentElement.innerHTML='<i class=\'fas fa-video product-icon-fallback\'></i>'" />
+                    <div class="product-badges"><span class="badge-new">NEW</span></div>
+                    <button class="product-wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category-tag"><i class="fas fa-video me-1"></i>CCTV</div>
+                    <div class="product-name">2MP PTZ Speed Dome</div>
+                    <div class="product-desc">360° pan/tilt/zoom, 30x optical zoom, auto-tracking, IR night vision 100m. PoE support.</div>
+                    <div class="product-rating"><span class="stars">★★★★½</span><span class="count">(4.6 · 78 reviews)</span></div>
+                    <div class="product-price-row">
+                        <span><span class="price-current">৳6,200</span></span>
+                        <button class="btn-add-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 col-xl-3 product-item" data-category="cctv" data-price="14500" data-rating="4.9" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg?auto=compress&cs=tinysrgb&w=600" alt="NVR Kit" onerror="this.parentElement.innerHTML='<i class=\'fas fa-video product-icon-fallback\'></i>'" />
+                    <div class="product-badges"><span class="badge-hot">BUNDLE</span></div>
+                    <button class="product-wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category-tag"><i class="fas fa-video me-1"></i>CCTV</div>
+                    <div class="product-name">8-Channel NVR Kit (4 cams)</div>
+                    <div class="product-desc">8ch NVR + 4×4MP cameras + 1TB HDD. Complete setup for home or small business. Plug & play.</div>
+                    <div class="product-rating"><span class="stars">★★★★★</span><span class="count">(4.9 · 56 reviews)</span></div>
+                    <div class="product-price-row">
+                        <span><span class="price-current">৳14,500</span><span class="price-old">৳19,000</span></span>
+                        <button class="btn-add-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== POWER BANKS ===== -->
+        <div class="col-sm-6 col-lg-4 col-xl-3 product-item" data-category="powerbank" data-price="2400" data-rating="4.7" data-aos="fade-up">
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://images.pexels.com/photos/4526407/pexels-photo-4526407.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Power Bank 20000mAh" onerror="this.parentElement.innerHTML='<i class=\'fas fa-battery-three-quarters product-icon-fallback\'></i>'" />
+                    <div class="product-badges"><span class="badge-best">BEST SELLER</span></div>
+                    <button class="product-wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category-tag"><i class="fas fa-battery-three-quarters me-1"></i>Power Bank</div>
+                    <div class="product-name">20,000mAh 65W Power Bank</div>
+                    <div class="product-desc">Charges laptop + phone simultaneously. Slim, airline-safe, LED display. USB-C PD 65W.</div>
+                    <div class="product-rating"><span class="stars">★★★★★</span><span class="count">(4.7 · 445 reviews)</span></div>
+                    <div class="product-price-row">
+                        <span><span class="price-current">৳2,400</span><span class="price-old">৳3,200</span></span>
+                        <button class="btn-add-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 col-xl-3 product-item" data-category="powerbank" data-price="1600" data-rating="4.5" data-aos="fade-up" data-aos-delay="50">
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://images.pexels.com/photos/5082576/pexels-photo-5082576.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Wireless Power Bank" onerror="this.parentElement.innerHTML='<i class=\'fas fa-battery-three-quarters product-icon-fallback\'></i>'" />
+                    <div class="product-badges"><span class="badge-new">WIRELESS</span></div>
+                    <button class="product-wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category-tag"><i class="fas fa-battery-three-quarters me-1"></i>Power Bank</div>
+                    <div class="product-name">10,000mAh MagSafe Powerbank</div>
+                    <div class="product-desc">Wireless Qi2 15W + USB-C 45W. Magnetic snap for iPhone 15/14 series. Ultra slim.</div>
+                    <div class="product-rating"><span class="stars">★★★★½</span><span class="count">(4.5 · 210 reviews)</span></div>
+                    <div class="product-price-row">
+                        <span><span class="price-current">৳1,600</span><span class="price-old">৳2,200</span></span>
+                        <button class="btn-add-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== ELECTRIC ITEMS ===== -->
+        <div class="col-sm-6 col-lg-4 col-xl-3 product-item" data-category="electric" data-price="3800" data-rating="4.6" data-aos="fade-up">
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Smart Extension Board" onerror="this.parentElement.innerHTML='<i class=\'fas fa-bolt product-icon-fallback\'></i>'" />
+                    <div class="product-badges"><span class="badge-best">SMART</span></div>
+                    <button class="product-wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category-tag"><i class="fas fa-bolt me-1"></i>Electric</div>
+                    <div class="product-name">Smart WiFi Extension Board</div>
+                    <div class="product-desc">6 outlets + 4 USB ports + 2 USB-C. Voice control (Alexa/Google). Surge protection 2500J.</div>
+                    <div class="product-rating"><span class="stars">★★★★½</span><span class="count">(4.6 · 312 reviews)</span></div>
+                    <div class="product-price-row">
+                        <span><span class="price-current">৳3,800</span><span class="price-old">৳5,000</span></span>
+                        <button class="btn-add-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 col-xl-3 product-item" data-category="electric" data-price="1800" data-rating="4.4" data-aos="fade-up" data-aos-delay="50">
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://images.pexels.com/photos/1123970/pexels-photo-1123970.jpeg?auto=compress&cs=tinysrgb&w=600" alt="LED Smart Bulb" onerror="this.parentElement.innerHTML='<i class=\'fas fa-bolt product-icon-fallback\'></i>'" />
+                    <div class="product-badges"><span class="badge-new">NEW</span></div>
+                    <button class="product-wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category-tag"><i class="fas fa-bolt me-1"></i>Electric</div>
+                    <div class="product-name">RGB Smart LED Bulb (4-pack)</div>
+                    <div class="product-desc">16M colors, app & voice control, schedule & scene modes. E27, 9W = 80W equivalent.</div>
+                    <div class="product-rating"><span class="stars">★★★★</span><span class="count">(4.4 · 167 reviews)</span></div>
+                    <div class="product-price-row">
+                        <span><span class="price-current">৳1,800</span><span class="price-old">৳2,400</span></span>
+                        <button class="btn-add-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 col-xl-3 product-item" data-category="electric" data-price="2900" data-rating="4.7" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://images.pexels.com/photos/3825539/pexels-photo-3825539.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Digital UPS" onerror="this.parentElement.innerHTML='<i class=\'fas fa-bolt product-icon-fallback\'></i>'" />
+                    <div class="product-badges"><span class="badge-hot">POPULAR</span></div>
+                    <button class="product-wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category-tag"><i class="fas fa-bolt me-1"></i>Electric</div>
+                    <div class="product-name">Mini UPS for Router & CCTV</div>
+                    <div class="product-desc">Powers router + CCTV during outages. 8000mAh, 12V/9V/5V multi-output. 4–6h backup.</div>
+                    <div class="product-rating"><span class="stars">★★★★★</span><span class="count">(4.7 · 234 reviews)</span></div>
+                    <div class="product-price-row">
+                        <span><span class="price-current">৳2,900</span><span class="price-old">৳3,800</span></span>
+                        <button class="btn-add-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /productGrid -->
+    <!-- EMPTY STATE (hidden by default) -->
+    <div id="emptyState" class="text-center py-5" style="display:none !important;">
+        <i class="fas fa-search fa-3x text-muted mb-3 d-block"></i>
+        <h5 class="text-muted">No products found</h5>
+        <p class="text-muted">Try a different search or category.</p>
+        <button class="btn btn-outline-primary rounded-pill px-4" onclick="resetFilters()">Show all products</button>
+    </div>
+
+    <!-- CTA SECTION -->
+    <div class="row g-4 mt-3" data-aos="fade-up">
+        <div class="col-md-6">
+            <div class="bg-white rounded-5 p-4 border border-2 border-primary-subtle h-100 d-flex align-items-center gap-4">
+                <div style="min-width:60px;height:60px;background:#e8f2ff;border-radius:18px;display:flex;align-items:center;justify-content:center;">
+                    <i class="fas fa-handshake fa-2x text-primary"></i>
+                </div>
+                <div>
+                    <h5 class="fw-bold mb-1">Become a Dealer</h5>
+                    <p class="text-muted mb-2 small">Get wholesale pricing, marketing support & priority stock allocation.</p>
+                    <a href="#dealership" class="btn btn-primary rounded-pill btn-sm px-4">Apply Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="bg-white rounded-5 p-4 border border-2 border-success-subtle h-100 d-flex align-items-center gap-4">
+                <div style="min-width:60px;height:60px;background:#eaf7ef;border-radius:18px;display:flex;align-items:center;justify-content:center;">
+                    <i class="fas fa-truck fa-2x text-success"></i>
+                </div>
+                <div>
+                    <h5 class="fw-bold mb-1">Free Delivery</h5>
+                    <p class="text-muted mb-2 small">Free shipping inside Dhaka on orders above ৳1,500. Nationwide delivery available.</p>
+                    <a href="#contact" class="btn btn-success rounded-pill btn-sm px-4">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+    <style>
+        /* ===== PRODUCT PAGE STYLES ===== */
+        .products-hero {
+            background: radial-gradient(ellipse at 10% 40%, #d6eaff, #f6faff 80%);
+            padding: 4rem 1.5rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .products-hero::before {
+                content: '';
+                position: absolute;
+                width: 500px;
+                height: 500px;
+                background: radial-gradient(circle, #c2ddff25, transparent 70%);
+                top: -150px;
+                right: -100px;
+                border-radius: 50%;
+            }
+
+        .page-title {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            background: linear-gradient(135deg, #021c33, #1f509e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* ===== SEARCH BAR ===== */
+        .search-wrapper {
+            position: relative;
+            max-width: 520px;
+        }
+
+            .search-wrapper input {
+                width: 100%;
+                padding: 14px 52px 14px 22px;
+                border-radius: 60px;
+                border: 2px solid #d0e4f7;
+                font-size: 1rem;
+                font-weight: 500;
+                background: white;
+                box-shadow: 0 8px 20px -8px #1a5eb820;
+                outline: none;
+                transition: border 0.2s, box-shadow 0.2s;
+            }
+
+                .search-wrapper input:focus {
+                    border-color: #2266bb;
+                    box-shadow: 0 8px 24px -8px #2266bb40;
+                }
+
+            .search-wrapper .search-icon {
+                position: absolute;
+                right: 18px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #2266bb;
+                font-size: 1.1rem;
+            }
+
+        /* ===== FILTER TABS ===== */
+        .filter-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .filter-tab {
+            padding: 9px 22px;
+            border-radius: 60px;
+            border: 2px solid #d0e4f7;
+            background: white;
+            color: #1e344e;
+            font-weight: 600;
+            font-size: 0.92rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+            .filter-tab:hover, .filter-tab.active {
+                background: #0b2a4e;
+                color: white;
+                border-color: #0b2a4e;
+                transform: translateY(-2px);
+                box-shadow: 0 8px 18px -6px #0b2a4e60;
+            }
+
+            .filter-tab i {
+                margin-right: 6px;
+            }
+
+        /* ===== PRODUCT CARD ===== */
+        .product-card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            border: 1.5px solid #e4eef8;
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+            .product-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 30px 50px -15px #0a3a6e35;
+                border-color: #b3d0f0;
+            }
+
+        .product-img-wrap {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+            background: #f0f6ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .product-img-wrap img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.4s ease;
+            }
+
+        .product-card:hover .product-img-wrap img {
+            transform: scale(1.06);
+        }
+
+        .product-icon-fallback {
+            font-size: 5rem;
+            color: #aac9e8;
+        }
+
+        .product-badges {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .badge-new {
+            background: #0b2a4e;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+
+        .badge-hot {
+            background: #e63946;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
+        .badge-sale {
+            background: #f4a300;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
+        .badge-best {
+            background: #198754;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
+        .product-wishlist {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 36px;
+            height: 36px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px #0003;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            color: #ccc;
+        }
+
+            .product-wishlist:hover {
+                color: #e63946;
+                transform: scale(1.1);
+            }
+
+        .product-info {
+            padding: 1.2rem 1.4rem 1.4rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-category-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #2266bb;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .product-name {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0b1c2e;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .product-desc {
+            font-size: 0.87rem;
+            color: #6b7d93;
+            margin-bottom: 12px;
+            flex: 1;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 10px;
+        }
+
+            .product-rating .stars {
+                color: #f4a300;
+                font-size: 0.82rem;
+            }
+
+            .product-rating .count {
+                font-size: 0.78rem;
+                color: #8ea3ba;
+            }
+
+        .product-price-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .price-current {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #0b2a4e;
+        }
+
+        .price-old {
+            font-size: 0.88rem;
+            color: #aab8c8;
+            text-decoration: line-through;
+            margin-left: 6px;
+        }
+
+        .btn-add-cart {
+            background: #0b2a4e;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-size: 0.83rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+            .btn-add-cart:hover {
+                background: #1a4880;
+                transform: scale(1.04);
+            }
+
+        /* ===== STATS STRIP ===== */
+        .stats-strip {
+            background: #0b2a4e;
+            padding: 1.2rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            border-right: 1px solid #ffffff20;
+            padding: 0.5rem 1rem;
+        }
+
+            .stat-item:last-child {
+                border-right: none;
+            }
+
+        .stat-num {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #7ab8f5;
+        }
+
+        .stat-label {
+            font-size: 0.82rem;
+            color: #a0bdd8;
+            font-weight: 500;
+        }
+
+        /* ===== SORT / RESULTS BAR ===== */
+        .results-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .results-count {
+            font-weight: 600;
+            color: #4a6380;
+            font-size: 0.95rem;
+        }
+
+        .sort-select {
+            padding: 8px 18px;
+            border-radius: 40px;
+            border: 2px solid #d0e4f7;
+            font-weight: 600;
+            color: #1e344e;
+            background: white;
+            font-size: 0.9rem;
+            outline: none;
+            cursor: pointer;
+        }
+
+        /* ===== PROMO BANNER ===== */
+        .promo-banner {
+            background: linear-gradient(135deg, #0b2a4e, #1a5096);
+            border-radius: 28px;
+            padding: 2.5rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+        }
+
+            .promo-banner::after {
+                content: '';
+                position: absolute;
+                width: 300px;
+                height: 300px;
+                background: rgba(255,255,255,0.04);
+                border-radius: 50%;
+                right: -80px;
+                top: -80px;
+            }
+
+        /* ===== RESPONSIVE ===== */
+        @@media (max-width: 768px) {
+            .page-title {
+                font-size: 2.2rem;
+            }
+
+            .filter-tabs {
+                gap: 8px;
+            }
+
+            .filter-tab {
+                padding: 7px 16px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+
+@section Scripts {
+    <script>
+        // ===== FILTER LOGIC =====
+        const tabs = document.querySelectorAll('.filter-tab');
+        const items = document.querySelectorAll('.product-item');
+        const resultsCount = document.getElementById('resultsCount');
+        const emptyState = document.getElementById('emptyState');
+        const searchInput = document.getElementById('productSearch');
+        const sortSelect = document.getElementById('sortSelect');
+
+        let currentFilter = 'all';
+        let currentSearch = '';
+        let currentSort = '';
+
+        function applyFilters() {
+            let visible = 0;
+            items.forEach(item => {
+                const cat = item.dataset.category;
+                const nameEl = item.querySelector('.product-name');
+                const descEl = item.querySelector('.product-desc');
+                const name = nameEl ? nameEl.textContent.toLowerCase() : '';
+                const desc = descEl ? descEl.textContent.toLowerCase() : '';
+
+                const catMatch = (currentFilter === 'all') || (cat === currentFilter);
+                const searchMatch = (currentSearch === '') || name.includes(currentSearch) || desc.includes(currentSearch);
+
+                if (catMatch && searchMatch) {
+                    item.style.display = '';
+                    visible++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            resultsCount.textContent = `Showing ${visible} product${visible !== 1 ? 's' : ''}`;
+            emptyState.style.display = visible === 0 ? 'block' : 'none';
+        }
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                currentFilter = tab.dataset.filter;
+                applyFilters();
+            });
+        });
+
+        searchInput.addEventListener('input', () => {
+            currentSearch = searchInput.value.toLowerCase().trim();
+            applyFilters();
+        });
+
+        // ===== SORT LOGIC =====
+        sortSelect.addEventListener('change', () => {
+            currentSort = sortSelect.value;
+            const grid = document.getElementById('productGrid');
+            const itemsArr = [...grid.querySelectorAll('.product-item')];
+
+            itemsArr.sort((a, b) => {
+                if (currentSort === 'price-low') return +a.dataset.price - +b.dataset.price;
+                if (currentSort === 'price-high') return +b.dataset.price - +a.dataset.price;
+                if (currentSort === 'rating') return +b.dataset.rating - +a.dataset.rating;
+                return 0;
+            });
+            itemsArr.forEach(el => grid.appendChild(el));
+        });
+
+        // ===== WISHLIST TOGGLE =====
+        document.querySelectorAll('.product-wishlist').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const icon = this.querySelector('i');
+                icon.classList.toggle('fas');
+                icon.classList.toggle('far');
+                this.style.color = icon.classList.contains('fas') ? '#e63946' : '#ccc';
+            });
+        });
+
+        // ===== ADD TO CART FEEDBACK =====
+        document.querySelectorAll('.btn-add-cart').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const original = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-check me-1"></i>Added!';
+                this.style.background = '#198754';
+                setTimeout(() => {
+                    this.innerHTML = original;
+                    this.style.background = '';
+                }, 1500);
+            });
+        });
+
+        function resetFilters() {
+            currentFilter = 'all';
+            currentSearch = '';
+            searchInput.value = '';
+            tabs.forEach(t => t.classList.remove('active'));
+            tabs[0].classList.add('active');
+            applyFilters();
+        }
+    </script>
+}
