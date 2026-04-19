@@ -1,0 +1,1052 @@
+﻿@{
+    ViewData["Title"] = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ 
+    <style>
+        /* ===== ABOUT PAGE STYLES ===== */
+
+        /* HERO */
+        .about-hero {
+            padding: 5rem 1.5rem 4rem;
+            background: radial-gradient(ellipse at 15% 50%, #daeaff, #f6faff 75%);
+            position: relative;
+            overflow: hidden;
+        }
+
+            .about-hero::before {
+                content: '';
+                position: absolute;
+                width: 550px;
+                height: 550px;
+                background: radial-gradient(circle, #b8d8ff22, transparent 70%);
+                top: -180px;
+                right: -120px;
+                border-radius: 50%;
+            }
+
+            .about-hero::after {
+                content: '';
+                position: absolute;
+                width: 300px;
+                height: 300px;
+                background: radial-gradient(circle, #d0e9ff18, transparent 70%);
+                bottom: -80px;
+                left: 60px;
+                border-radius: 50%;
+            }
+
+        .about-page-title {
+            font-size: 3.6rem;
+            font-weight: 800;
+            line-height: 1.12;
+            background: linear-gradient(135deg, #021c33, #1f509e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .about-hero-img {
+            border-radius: 36px;
+            overflow: hidden;
+            box-shadow: 0 40px 60px -20px #0a3a6e35;
+            position: relative;
+        }
+
+            .about-hero-img img {
+                width: 100%;
+                height: 380px;
+                object-fit: cover;
+                display: block;
+                transition: transform 0.5s ease;
+            }
+
+            .about-hero-img:hover img {
+                transform: scale(1.04);
+            }
+
+            .about-hero-img .img-overlay-badge {
+                position: absolute;
+                bottom: 20px;
+                left: 20px;
+                background: rgba(11,26,46,0.82);
+                backdrop-filter: blur(12px);
+                color: white;
+                border-radius: 20px;
+                padding: 12px 22px;
+                font-weight: 700;
+                font-size: 0.95rem;
+                border: 1px solid rgba(255,255,255,0.15);
+            }
+
+        /* FLOATING STAT CARDS */
+        .stat-float-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .stat-float-card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.5rem 1.2rem;
+            text-align: center;
+            box-shadow: 0 20px 35px -10px #0a3a6e20;
+            border: 1.5px solid #e0eeff;
+            transition: all 0.3s;
+        }
+
+            .stat-float-card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 30px 45px -14px #0a3a6e35;
+                border-color: #b3d0f0;
+            }
+
+            .stat-float-card .stat-num {
+                font-size: 2.4rem;
+                font-weight: 800;
+                background: linear-gradient(135deg, #0b2a4e, #2266bb);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                line-height: 1;
+                margin-bottom: 4px;
+            }
+
+            .stat-float-card .stat-icon {
+                font-size: 1.8rem;
+                color: #2266bb;
+                margin-bottom: 10px;
+            }
+
+            .stat-float-card .stat-lbl {
+                font-size: 0.82rem;
+                font-weight: 600;
+                color: #6b84a0;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+            }
+
+        /* DIVIDER WAVE */
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d0e4f7, transparent);
+            margin: 0;
+            border: none;
+        }
+
+        /* ABOUT SECTION TITLES */
+        .about-section-label {
+            display: inline-block;
+            background: #eaf2ff;
+            color: #1a5096;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 6px 18px;
+            border-radius: 40px;
+            margin-bottom: 14px;
+        }
+
+        /* VALUES CARDS */
+        .value-card {
+            background: white;
+            border-radius: 28px;
+            padding: 2rem 1.6rem;
+            border: 1.5px solid #e4eef8;
+            height: 100%;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .value-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 4px;
+                background: linear-gradient(90deg, #0b2a4e, #2266bb);
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+
+            .value-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 28px 44px -14px #0a3a6e28;
+                border-color: #b3d0f0;
+            }
+
+                .value-card:hover::before {
+                    opacity: 1;
+                }
+
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            background: #eaf2ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7rem;
+            color: #1a5096;
+            margin-bottom: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .value-card:hover .value-icon {
+            background: #0b2a4e;
+            color: #7ab8f5;
+        }
+
+        .value-card h5 {
+            font-weight: 700;
+            color: #0b1c2e;
+            margin-bottom: 8px;
+        }
+
+        .value-card p {
+            font-size: 0.9rem;
+            color: #6b7d93;
+            margin: 0;
+            line-height: 1.65;
+        }
+
+        /* TIMELINE */
+        .timeline {
+            position: relative;
+            padding-left: 2.5rem;
+        }
+
+            .timeline::before {
+                content: '';
+                position: absolute;
+                left: 10px;
+                top: 6px;
+                bottom: 6px;
+                width: 2px;
+                background: linear-gradient(180deg, #2266bb, #d0e4f7);
+                border-radius: 2px;
+            }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.4rem;
+        }
+
+            .timeline-item:last-child {
+                margin-bottom: 0;
+            }
+
+        .timeline-dot {
+            position: absolute;
+            left: -2.1rem;
+            top: 4px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #2266bb;
+            border: 3px solid #eaf2ff;
+            box-shadow: 0 0 0 3px #2266bb30;
+            transition: all 0.3s;
+        }
+
+        .timeline-item:hover .timeline-dot {
+            background: #0b2a4e;
+            box-shadow: 0 0 0 5px #0b2a4e20;
+            transform: scale(1.2);
+        }
+
+        .timeline-year {
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: #2266bb;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .timeline-title {
+            font-weight: 700;
+            color: #0b1c2e;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .timeline-desc {
+            font-size: 0.87rem;
+            color: #6b7d93;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* TEAM CARDS */
+        .team-card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            border: 1.5px solid #e4eef8;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+            .team-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 30px 50px -15px #0a3a6e30;
+                border-color: #b3d0f0;
+            }
+
+        .team-img-wrap {
+            height: 220px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #e8f2ff, #d0e4f7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+            .team-img-wrap img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: top;
+                transition: transform 0.4s;
+            }
+
+        .team-card:hover .team-img-wrap img {
+            transform: scale(1.06);
+        }
+
+        .team-avatar-fallback {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: #0b2a4e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #7ab8f5;
+            letter-spacing: 0.02em;
+        }
+
+        .team-info {
+            padding: 1.4rem 1.2rem 1.6rem;
+        }
+
+        .team-name {
+            font-weight: 700;
+            color: #0b1c2e;
+            font-size: 1.05rem;
+            margin-bottom: 3px;
+        }
+
+        .team-role {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #2266bb;
+            margin-bottom: 10px;
+        }
+
+        .team-bio {
+            font-size: 0.83rem;
+            color: #6b7d93;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .team-socials a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #eaf2ff;
+            color: #1a5096;
+            font-size: 0.85rem;
+            margin: 0 3px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+            .team-socials a:hover {
+                background: #0b2a4e;
+                color: white;
+                transform: scale(1.1);
+            }
+
+        /* WHY CHOOSE US */
+        .why-section {
+            background: #0b2a4e;
+            border-radius: 40px;
+            padding: 4rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .why-section::before {
+                content: '';
+                position: absolute;
+                width: 400px;
+                height: 400px;
+                background: rgba(255,255,255,0.03);
+                border-radius: 50%;
+                top: -150px;
+                right: -100px;
+            }
+
+            .why-section::after {
+                content: '';
+                position: absolute;
+                width: 250px;
+                height: 250px;
+                background: rgba(255,255,255,0.03);
+                border-radius: 50%;
+                bottom: -80px;
+                left: 40px;
+            }
+
+        .why-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            margin-bottom: 2rem;
+        }
+
+            .why-item:last-child {
+                margin-bottom: 0;
+            }
+
+        .why-num {
+            min-width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #7ab8f5;
+        }
+
+        .why-item h6 {
+            font-weight: 700;
+            color: white;
+            margin-bottom: 4px;
+            font-size: 1rem;
+        }
+
+        .why-item p {
+            font-size: 0.87rem;
+            color: #a0bdd8;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* PARTNERS LOGOS */
+        .partner-logo-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            align-items: center;
+        }
+
+        .partner-chip {
+            background: white;
+            border: 1.5px solid #dceeff;
+            border-radius: 50px;
+            padding: 10px 22px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: #1a4880;
+            transition: all 0.2s;
+            cursor: default;
+        }
+
+            .partner-chip:hover {
+                background: #0b2a4e;
+                color: white;
+                border-color: #0b2a4e;
+                transform: translateY(-3px);
+                box-shadow: 0 10px 20px -6px #0b2a4e50;
+            }
+
+        /* CERTIFICATIONS */
+        .cert-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.4rem 1.2rem;
+            border: 1.5px solid #e4eef8;
+            text-align: center;
+            transition: all 0.25s;
+        }
+
+            .cert-card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 22px 36px -12px #0a3a6e22;
+                border-color: #b3d0f0;
+            }
+
+            .cert-card i {
+                font-size: 2.2rem;
+                color: #1a5096;
+                margin-bottom: 10px;
+                display: block;
+            }
+
+            .cert-card h6 {
+                font-weight: 700;
+                color: #0b1c2e;
+                font-size: 0.9rem;
+                margin-bottom: 4px;
+            }
+
+            .cert-card small {
+                color: #8ea3ba;
+                font-size: 0.78rem;
+            }
+
+        /* CTA BANNER */
+        .about-cta {
+            background: linear-gradient(135deg, #0b2a4e, #1a5096);
+            border-radius: 36px;
+            padding: 3.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .about-cta::before {
+                content: '';
+                position: absolute;
+                width: 350px;
+                height: 350px;
+                background: rgba(255,255,255,0.04);
+                border-radius: 50%;
+                top: -120px;
+                right: -80px;
+            }
+
+        /* RESPONSIVE */
+        @@media (max-width: 768px) {
+            .about-page-title
+
+        {
+            font-size: 2.4rem;
+        }
+
+        .why-section {
+            padding: 2.5rem 1.5rem;
+            border-radius: 28px;
+        }
+
+        .about-cta {
+            padding: 2.5rem 1.5rem;
+            border-radius: 24px;
+        }
+
+        .stat-float-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        }
+    </style>
+ 
+
+<!-- ══════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════ -->
+<section class="about-hero">
+    <div class="container position-relative" style="z-index:5;">
+        <div class="row align-items-center g-5">
+
+            <!-- Left text -->
+            <div class="col-lg-6" data-aos="fade-up">
+                <span class="about-section-label"><i class="fas fa-building me-1"></i>About Us</span>
+                <h1 class="about-page-title">We are Duha<br>Global Technology</h1>
+                <p class="fs-5 text-secondary mt-3 mb-4" style="line-height:1.75;">
+                    Born in Dhaka, built for the world. Since 2018 we have been delivering premium mobile accessories, intelligent security systems, and e‑commerce solutions that empower people and businesses across 12+ countries.
+                </p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="#our-story" class="btn btn-duha"><i class="fas fa-book-open me-2"></i>Our Story</a>
+                    <a href="#contact" class="btn btn-outline-primary rounded-pill px-4 py-3 fw-bold"><i class="fas fa-phone-alt me-2"></i>Get in Touch</a>
+                </div>
+            </div>
+
+            <!-- Right: image + floating stats -->
+            <div class="col-lg-6" data-aos="zoom-in-left">
+                <div class="row g-3">
+                    <div class="col-8">
+                        <div class="about-hero-img">
+                            <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Duha Global Team" onerror="this.style.height='380px';this.style.background='#eaf2ff';" />
+                            <div class="img-overlay-badge">
+                                <i class="fas fa-map-marker-alt me-2 text-warning"></i>Dhaka, Bangladesh
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="stat-float-grid" style="grid-template-columns:1fr;">
+                            <div class="stat-float-card" data-aos="fade-left" data-aos-delay="100">
+                                <div class="stat-icon"><i class="fas fa-calendar-alt"></i></div>
+                                <div class="stat-num">2018</div>
+                                <div class="stat-lbl">Founded</div>
+                            </div>
+                            <div class="stat-float-card" data-aos="fade-left" data-aos-delay="200">
+                                <div class="stat-icon"><i class="fas fa-globe"></i></div>
+                                <div class="stat-num">12+</div>
+                                <div class="stat-lbl">Countries</div>
+                            </div>
+                            <div class="stat-float-card" data-aos="fade-left" data-aos-delay="300">
+                                <div class="stat-icon"><i class="fas fa-users"></i></div>
+                                <div class="stat-num">50K+</div>
+                                <div class="stat-lbl">Customers</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     QUICK STATS ROW
+══════════════════════════════════════════════════ -->
+<section class="container py-5">
+    <div class="row g-3 text-center" data-aos="fade-up">
+        <div class="col-6 col-md-3">
+            <div class="stat-float-card">
+                <div class="stat-icon"><i class="fas fa-box-open"></i></div>
+                <div class="stat-num">120+</div>
+                <div class="stat-lbl">Products</div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="stat-float-card">
+                <div class="stat-icon"><i class="fas fa-handshake"></i></div>
+                <div class="stat-num">300+</div>
+                <div class="stat-lbl">Dealer Partners</div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="stat-float-card">
+                <div class="stat-icon"><i class="fas fa-star"></i></div>
+                <div class="stat-num">4.8★</div>
+                <div class="stat-lbl">Avg Rating</div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="stat-float-card">
+                <div class="stat-icon"><i class="fas fa-shield-alt"></i></div>
+                <div class="stat-num">2 yr</div>
+                <div class="stat-lbl">Warranty</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════
+     OUR STORY + TIMELINE
+══════════════════════════════════════════════════ -->
+<section id="our-story" class="container py-5">
+    <div class="row align-items-center g-5">
+
+        <!-- Timeline -->
+        <div class="col-lg-6" data-aos="fade-right">
+            <span class="about-section-label"><i class="fas fa-history me-1"></i>Our Journey</span>
+            <h2 class="section-title mb-4">From a small shop<br>to a global brand</h2>
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2018</div>
+                    <div class="timeline-title">The beginning — mobile retail</div>
+                    <p class="timeline-desc">Started as a small mobile accessories shop in Dhaka with a vision to bring quality products to Bangladeshi consumers at fair prices.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2019</div>
+                    <div class="timeline-title">GaN charger line launched</div>
+                    <p class="timeline-desc">Introduced our first branded GaN fast charger range — quickly becoming one of Bangladesh's top-selling charger brands.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2021</div>
+                    <div class="timeline-title">CCTV & security division</div>
+                    <p class="timeline-desc">Expanded into CCTV cameras, NVR kits, and surveillance solutions for homes, offices, and industrial clients.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2022</div>
+                    <div class="timeline-title">E-commerce arm launched</div>
+                    <p class="timeline-desc">Built a full-service e-commerce wing supporting sellers on Amazon, Shopify, Daraz, and local platforms with sourcing, photography, and fulfillment.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-title">International expansion</div>
+                    <p class="timeline-desc">Began serving clients in 12+ countries. Export partnerships established across South Asia, Middle East, and Europe.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2026 →</div>
+                    <div class="timeline-title">The next chapter</div>
+                    <p class="timeline-desc">Expanding product lines, opening regional offices, and launching our own proprietary tech accessories sub-brand.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Story image -->
+        <div class="col-lg-6" data-aos="fade-left">
+            <div class="about-hero-img mb-4">
+                <img src="https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Duha Global office" />
+                <div class="img-overlay-badge"><i class="fas fa-quote-left me-2 text-warning"></i>Innovation & Integrity — CEO</div>
+            </div>
+            <div class="bg-white rounded-4 p-4 border border-2" style="border-color:#dceeff !important;">
+                <p class="fs-5 fst-italic text-secondary mb-3" style="line-height:1.75;">
+                    "We started Duha with one goal — give people access to products that just <strong>work</strong>. No compromise on quality, no compromise on service."
+                </p>
+                <div class="d-flex align-items-center gap-3">
+                    <div style="width:48px;height:48px;border-radius:50%;background:#0b2a4e;display:flex;align-items:center;justify-content:center;font-weight:800;color:#7ab8f5;font-size:1.1rem;">MR</div>
+                    <div>
+                        <div class="fw-bold text-dark">Md. Rahman</div>
+                        <div class="text-muted small">Founder & CEO, Duha Global Technology</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════
+     VISION & MISSION (detailed)
+══════════════════════════════════════════════════ -->
+<section class="container py-5">
+    <div class="text-center mb-5" data-aos="fade-up">
+        <span class="about-section-label"><i class="fas fa-flag-checkered me-1"></i>Our Compass</span>
+        <h2 class="section-title">Vision & Mission</h2>
+        <p class="fs-5 text-secondary">The principles that guide every decision we make.</p>
+    </div>
+    <div class="row g-4">
+        <div class="col-md-6" data-aos="fade-right">
+            <div class="bg-white rounded-5 p-5 h-100 border" style="border-color:#dceeff !important; border-width:1.5px !important;">
+                <div style="width:70px;height:70px;border-radius:22px;background:#eaf2ff;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;">
+                    <i class="fas fa-binoculars fa-2x" style="color:#1a5096;"></i>
+                </div>
+                <h3 class="fw-bold mb-3">🌍 Our Vision</h3>
+                <p class="fs-5" style="color:#4a6380;line-height:1.8;">
+                    To be the most trusted global technology partner in mobile accessories, security solutions, and digital commerce — connecting Bangladesh's innovation with the world.
+                </p>
+                <hr style="border-color:#dceeff;">
+                <ul class="list-unstyled mt-3 mb-0">
+                    <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Global reach with local heart</li>
+                    <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Technology that empowers lives</li>
+                    <li>       <i class="fas fa-arrow-right text-primary me-2"></i> Trusted partner for 100+ countries by 2030</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-left">
+            <div class="bg-white rounded-5 p-5 h-100 border" style="border-color:#dceeff !important; border-width:1.5px !important;">
+                <div style="width:70px;height:70px;border-radius:22px;background:#eaf2ff;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;">
+                    <i class="fas fa-bullseye fa-2x" style="color:#1a5096;"></i>
+                </div>
+                <h3 class="fw-bold mb-3">🎯 Our Mission</h3>
+                <p class="fs-5" style="color:#4a6380;line-height:1.8;">
+                    Deliver premium chargers, headphones, power banks, CCTV systems, and e‑commerce services with unmatched quality, intelligent design, and customer-first care — every single day.
+                </p>
+                <hr style="border-color:#dceeff;">
+                <ul class="list-unstyled mt-3 mb-0">
+                    <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Premium quality at honest prices</li>
+                    <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> 2-year warranty on all products</li>
+                    <li>       <i class="fas fa-arrow-right text-primary me-2"></i> After-sales support that never quits</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════
+     CORE VALUES
+══════════════════════════════════════════════════ -->
+<section class="container py-5">
+    <div class="text-center mb-5" data-aos="fade-up">
+        <span class="about-section-label"><i class="fas fa-heart me-1"></i>Core Values</span>
+        <h2 class="section-title">What we stand for</h2>
+        <p class="fs-5 text-secondary">Six principles that define the Duha way.</p>
+    </div>
+    <div class="row g-4">
+        <div class="col-sm-6 col-lg-4" data-aos="fade-up">
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-gem"></i></div>
+                <h5>Uncompromising Quality</h5>
+                <p>Every product passes rigorous QC before it reaches our customers. We don't ship what we wouldn't use ourselves.</p>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="60">
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+                <h5>Innovation First</h5>
+                <p>We constantly search for the newest technologies — GaN charging, AI surveillance, smart home — to bring tomorrow's solutions today.</p>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="120">
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-handshake"></i></div>
+                <h5>Customer Partnership</h5>
+                <p>We treat every customer as a long-term partner — not a transaction. Your success is our success.</p>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="60">
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-balance-scale"></i></div>
+                <h5>Integrity Always</h5>
+                <p>Transparent pricing, honest product descriptions, and no hidden fees. What you see is exactly what you get.</p>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="120">
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-leaf"></i></div>
+                <h5>Sustainability</h5>
+                <p>Eco-friendly packaging, long-life products designed to reduce waste, and responsible sourcing throughout our supply chain.</p>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="180">
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-users"></i></div>
+                <h5>People First</h5>
+                <p>Our team, dealers, and community are our greatest assets. We invest in people before we invest in products.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════
+     WHY CHOOSE DUHA
+══════════════════════════════════════════════════ -->
+<section class="container py-5">
+    <div class="row align-items-center g-5">
+        <div class="col-lg-5" data-aos="fade-right">
+            <span class="about-section-label"><i class="fas fa-trophy me-1"></i>Why Duha</span>
+            <h2 class="section-title mb-3">Why thousands choose us</h2>
+            <p class="fs-5 text-secondary">We don't just sell products. We deliver confidence — backed by warranty, support, and a team that genuinely cares.</p>
+            <div class="mt-4">
+                <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Duha team working" class="img-fluid rounded-5 shadow" style="max-height:300px;width:100%;object-fit:cover;" />
+            </div>
+        </div>
+        <div class="col-lg-7" data-aos="fade-left">
+            <div class="why-section">
+                <div class="why-item">
+                    <div class="why-num">01</div>
+                    <div>
+                        <h6>2-Year Warranty on All Products</h6>
+                        <p>Industry-leading warranty coverage. If it breaks, we fix or replace it — no questions asked.</p>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <div class="why-num">02</div>
+                    <div>
+                        <h6>Certified & Safety-Tested</h6>
+                        <p>All chargers and electronics carry CE, RoHS, and FCC certifications. Your safety is non-negotiable.</p>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <div class="why-num">03</div>
+                    <div>
+                        <h6>Nationwide Delivery — Fast</h6>
+                        <p>Free delivery inside Dhaka on orders over ৳1,500. Nationwide shipping with real-time tracking.</p>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <div class="why-num">04</div>
+                    <div>
+                        <h6>Dedicated After-Sales Support</h6>
+                        <p>Our support team responds within 2 hours on all channels — WhatsApp, email, and phone.</p>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <div class="why-num">05</div>
+                    <div>
+                        <h6>Dealer & B2B Programme</h6>
+                        <p>Exclusive wholesale pricing, marketing assets, and priority stock for our 300+ dealer partners.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════
+     TEAM
+══════════════════════════════════════════════════ -->
+<section class="container py-5">
+    <div class="text-center mb-5" data-aos="fade-up">
+        <span class="about-section-label"><i class="fas fa-users me-1"></i>Meet the Team</span>
+        <h2 class="section-title">The people behind Duha</h2>
+        <p class="fs-5 text-secondary">A passionate team of tech enthusiasts, engineers, and business builders.</p>
+    </div>
+    <div class="row g-4">
+
+        <div class="col-sm-6 col-lg-3" data-aos="fade-up">
+            <div class="team-card">
+                <div class="team-img-wrap">
+                    <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400" alt="CEO" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=\'team-avatar-fallback\'>MR</div>';" />
+                </div>
+                <div class="team-info">
+                    <div class="team-name">Md. Rahman</div>
+                    <div class="team-role">Founder & CEO</div>
+                    <div class="team-bio">Visionary entrepreneur with 10+ years in mobile tech and global trade.</div>
+                    <div class="team-socials">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="80">
+            <div class="team-card">
+                <div class="team-img-wrap">
+                    <img src="https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400" alt="CTO" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=\'team-avatar-fallback\'>SK</div>';" />
+                </div>
+                <div class="team-info">
+                    <div class="team-name">Sabbir Khan</div>
+                    <div class="team-role">Chief Technology Officer</div>
+                    <div class="team-bio">CCTV & IoT expert. Leads product development and technical quality control.</div>
+                    <div class="team-socials">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="160">
+            <div class="team-card">
+                <div class="team-img-wrap">
+                    <img src="https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Head of Sales" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=\'team-avatar-fallback\'>NA</div>';" />
+                </div>
+                <div class="team-info">
+                    <div class="team-name">Nadia Akter</div>
+                    <div class="team-role">Head of Sales & Dealer Relations</div>
+                    <div class="team-bio">Manages our 300+ dealer network and drives B2B partnerships across Bangladesh.</div>
+                    <div class="team-socials">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="240">
+            <div class="team-card">
+                <div class="team-img-wrap">
+                    <img src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400" alt="E-commerce Head" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=\'team-avatar-fallback\'>RI</div>';" />
+                </div>
+                <div class="team-info">
+                    <div class="team-name">Rakib Islam</div>
+                    <div class="team-role">Head of E-commerce</div>
+                    <div class="team-bio">Amazon & Shopify expert. Leads our international seller support and fulfillment operations.</div>
+                    <div class="team-socials">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════
+     CERTIFICATIONS
+══════════════════════════════════════════════════ -->
+<section class="container py-5">
+    <div class="text-center mb-5" data-aos="fade-up">
+        <span class="about-section-label"><i class="fas fa-certificate me-1"></i>Certified & Trusted</span>
+        <h2 class="section-title">Our certifications</h2>
+        <p class="fs-5 text-secondary">Every product we sell meets international safety and quality standards.</p>
+    </div>
+    <div class="row g-3">
+        <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in"><div class="cert-card"><i class="fas fa-check-shield"></i><h6>CE Certified</h6><small>European Safety</small></div></div>
+        <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="50"><div class="cert-card"><i class="fas fa-broadcast-tower"></i><h6>FCC Approved</h6><small>US Standard</small></div></div>
+        <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="100"><div class="cert-card"><i class="fas fa-leaf"></i><h6>RoHS Compliant</h6><small>Eco-Friendly</small></div></div>
+        <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="150"><div class="cert-card"><i class="fas fa-award"></i><h6>ISO 9001</h6><small>Quality Mgmt</small></div></div>
+        <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="200"><div class="cert-card"><i class="fas fa-fire-extinguisher"></i><h6>UL Listed</h6><small>Fire Safety</small></div></div>
+        <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="250"><div class="cert-card"><i class="fas fa-mobile-alt"></i><h6>MFi Certified</h6><small>Apple Compatible</small></div></div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════
+     BRAND PARTNERS
+══════════════════════════════════════════════════ -->
+<section class="container py-5">
+    <div class="text-center mb-5" data-aos="fade-up">
+        <span class="about-section-label"><i class="fas fa-link me-1"></i>Our Partners</span>
+        <h2 class="section-title">Brands we work with</h2>
+        <p class="fs-5 text-secondary">Trusted by leading global technology brands as an authorized distributor and reseller.</p>
+    </div>
+    <div class="partner-logo-row justify-content-center" data-aos="fade-up">
+        <div class="partner-chip"><i class="fas fa-bolt me-2"></i>Anker</div>
+        <div class="partner-chip"><i class="fas fa-shield-alt me-2"></i>Hikvision</div>
+        <div class="partner-chip"><i class="fas fa-video me-2"></i>Dahua</div>
+        <div class="partner-chip"><i class="fas fa-headphones me-2"></i>Baseus</div>
+        <div class="partner-chip"><i class="fas fa-charging-station me-2"></i>Ugreen</div>
+        <div class="partner-chip"><i class="fas fa-plug me-2"></i>Belkin</div>
+        <div class="partner-chip"><i class="fas fa-hdd me-2"></i>SanDisk</div>
+        <div class="partner-chip"><i class="fas fa-battery-full me-2"></i>Xiaomi</div>
+        <div class="partner-chip"><i class="fas fa-shopping-bag me-2"></i>Daraz</div>
+        <div class="partner-chip"><i class="fab fa-amazon me-2"></i>Amazon</div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════════
+     CTA BANNER
+══════════════════════════════════════════════════ -->
+<section class="container py-5" data-aos="fade-up">
+    <div class="about-cta">
+        <div class="position-relative" style="z-index:2;">
+            <span class="badge bg-warning text-dark mb-3 px-3 py-2">Let's build together</span>
+            <h2 class="display-5 fw-bold text-white mb-3">Ready to partner with Duha?</h2>
+            <p class="fs-5 mb-4" style="color:#a0bdd8; max-width:560px; margin:0 auto 1.5rem;">
+                Whether you are a retailer, distributor, or online seller — we have the right programme for you. Join 300+ partners growing with Duha Global.
+            </p>
+            <div class="d-flex flex-wrap gap-3 justify-content-center">
+                <a href="#dealership" class="btn btn-warning fw-bold rounded-pill px-5 py-3"><i class="fas fa-handshake me-2"></i>Become a Dealer</a>
+                <a href="#contact" class="btn btn-outline-light fw-bold rounded-pill px-5 py-3"><i class="fas fa-envelope me-2"></i>Send a Message</a>
+            </div>
+        </div>
+    </div>
+</section>
